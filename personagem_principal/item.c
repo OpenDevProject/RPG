@@ -12,9 +12,11 @@ int item_encontrarVazioNoInventario(item inventario[])
 {
     for (int i = 0; i < MAX_INVENTARIO_SIZE; i++)
     {
-        if (inventario[i].quant == -1 && (strcmp(inventario[i].nome, "Vazio") == 0))
+        if (inventario[i].quant == -1 && (strcmp(inventario[i].nome, "VAZIO") == 0))
             return i;
     }
+
+    return -1;
 }
 
 /**
@@ -35,7 +37,7 @@ void item_UsarItemDoInventario(item itemParaUsar, personagem_principal *personag
 {
     for(int i = 0; i < MAX_INVENTARIO_SIZE; i++)
     {
-        if(strcmp(inventario[i].nome, "Poção de vida") == 0)
+        if(strcmp(inventario[i].nome, itemParaUsar.nome) == 0)
         {   
             inventario[i].quant--;
             personagem_recuperarVida(2, personagem);

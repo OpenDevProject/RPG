@@ -12,36 +12,33 @@
  */
 void Fase1(personagem_principal *personagem)
 {
-    puts("[rei] Você é o mercenário contratado? ");
+    puts("[rei] Voce e o mercenario contratado? ");
     sleep(1);
-    puts("[jogador] Sim, estou aqui pela missão de execução do Dragão Aither.");
+    puts("[jogador] Sim, estou aqui pela missao de execuçao do Dragao Aither.");
     sleep(1.5);
-    puts("[rei] Já matou algum monstro? ");
+    puts("[rei] Ja matou algum monstro? ");
     sleep(1);
     puts("[jogador] Alguns pequenos");
     sleep(1);
-    puts("[rei] E você está confiante em completar essa missão?");
+    puts("[rei] E voce esta confiante em completar essa missao?");
     sleep(1.5);
-    puts("[jogador] Para tudo há uma primeira vez, me esforçarei para trazer uma escama de Aither para você.");
+    puts("[jogador] Para tudo ha uma primeira vez, me esforçarei para trazer uma escama de Aither para voce.");
     sleep(2);
-    puts("[rei] Você deve começar matando os três Wyverns guardiões para se provar competente o suficiente.");
+    puts("[rei] Voce deve começar matando os tres Wyverns guardiões para se provar competente o suficiente.");
     sleep(2.5);
-    puts("[rei] Não enviaremos jovens inexperientes para sua morte!");
+    puts("[rei] Nao enviaremos jovens inexperientes para sua morte!");
     sleep(2);
-    puts("[rei] Leve essa espada e algumas poções para sua aventura na Floresta Mydra, na qual você executará o primeiro Wyvern, Radamanthys.");
+    puts("[rei] Leve essa espada e algumas poções para sua aventura na Floresta Mydra, na qual voce executara o primeiro Wyvern, Radamanthys.");
     
     item espada = ITEM_ESPADA;
-    puts("teste");
     espada.quant = 1;
     
     item pocao = ITEM_POCAO;
     pocao.quant = 10;
     
-    puts("teste");
     item_AdicionarItemAoInventario(espada, personagem->inventario);
     item_AdicionarItemAoInventario(pocao, personagem->inventario);
 
-    puts("teste");
     for (int i = 0; i < MAX_INVENTARIO_SIZE; i++)
     {
         printf("%s - %d\n", personagem->inventario[i].nome, personagem->inventario[i].quant);
@@ -49,9 +46,9 @@ void Fase1(personagem_principal *personagem)
     
 
     sleep(2.5);
-    puts("(Após receber a espada e as poções você parte para a Floresta Mydra para enfrentar Radamanthys.)");
+    puts("(Apos receber a espada e as poções voce parte para a Floresta Mydra para enfrentar Radamanthys.)");
     sleep(1);
-    puts("(No caminho para a floresta Mydra você encontra uma placa descrevendo os perigosos monstros.)");
+    puts("(No caminho para a floresta Mydra voce encontra uma placa descrevendo os perigosos monstros.)");
     sleep(1);
     puts("--------------------- Goblins -------------------");
     puts("--------------------- Slime ---------------------");
@@ -61,12 +58,12 @@ void Fase1(personagem_principal *personagem)
     puts("--------------------- Grifo ---------------------");
     puts("-------------- Radamanthys, Wyvern --------------");
     sleep(1);
-    puts("[jogador] Então essa é a Floresta Mydra!");
+    puts("[jogador] Entao essa e a Floresta Mydra!");
     sleep(1);
-    puts("(O ventro sopra e nosso herói percebe o quão profunda e escura é a floresta.) ");
+    puts("(O ventro sopra e nosso heroi percebe o quao profunda e escura e a floresta.) ");
     sleep(1.5);
-    puts("(Eis que surge um [adversário] )");
+    puts("(Eis que surge um [adversario] )");
     sleep(1);
-    puts("[adversário]");
+    puts("[adversario]");
     sleep(1);
 }

@@ -32,7 +32,7 @@ void personagem_principal_criarMago(personagem_principal *personagem);
 void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *personagem);
 
 #define ITEM_VAZIO {"VAZIO", -1, 0} 
-#define ITEM_POCAO {"Poção de vida", 0, 1}
+#define ITEM_POCAO {"Pocao de vida", 0, 1}
 #define ITEM_ESPADA {"Espada", 0, 0}
 
 int item_encontrarVazioNoInventario(item inventario[]);

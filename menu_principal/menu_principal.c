@@ -34,7 +34,7 @@ void MenuPrincipal(personagem_principal *personagem)
     {
         puts("MENU PRINCIPAL");
         puts("[1] - Iniciar Jogo");
-        puts("[2] - Créditos");
+        puts("[2] - Creditos");
         puts("[3] - Sair");
         
         scanf("%d", &opcaoMenuPrincipal);
@@ -48,11 +48,12 @@ void MenuPrincipal(personagem_principal *personagem)
             break;
 
         case 2:
-            puts("Créditos: Tiringa");
+            puts("Creditos: Tiringa");
             break;
 
         case 3:
             Exit();
+            return;
             break;
 
         default:

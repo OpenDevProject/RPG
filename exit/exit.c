@@ -11,11 +11,11 @@
  */
 int Exit()
 {
-    for (int i = 0; i <= 0; i--)
+    for (int i = 3; i >= 0; i--)
     {
         system(CLEAR);
         printf("Saindo...\n");
-        printf("TIMER: %d", i);
+        printf("TIMER: %d\n", i);
     }
     return 0;
 }

@@ -1,6 +1,7 @@
 #include "utils.h"
 #include <stdio.h>
 #include <string.h>
+#include <locale.h>
 
 /**
  * @brief Limpa o buffer para remover a nova linha do scanf
@@ -17,7 +18,7 @@ void clearBuffer()
  */
 void TratamentoDeErro()
 {
-    printf("Digite uma opção válida!!!\n");
+    printf("Digite uma opcao valida!!!\n");
 }
 
 /**

@@ -45,7 +45,7 @@ void CriandoPersonagem(personagem_principal *personagem)
     case 1:
         personagem_principal_criarGuerreiro(personagem);
 
-        printf("Parabéns, você escolheu Guerreiro!\n");
+        printf("Parabens, voce escolheu Guerreiro!\n");
 
         printf("Escolha sua arma:\n[1] - Espada\n[2] - Machado");
         scanf("%d", &arma);
@@ -54,11 +54,11 @@ void CriandoPersonagem(personagem_principal *personagem)
         switch (arma)
         {
         case 1:
-            printf("Parabéns, você escolheu a espada\n");
+            printf("Parabens, voce escolheu a espada\n");
             break;
 
         case 2:
-            printf("Parabéns, você escolheu o machado\n");
+            printf("Parabens, voce escolheu o machado\n");
             break;
 
         default:
@@ -68,7 +68,7 @@ void CriandoPersonagem(personagem_principal *personagem)
     case 2:
         personagem_principal_criarCacador(personagem);
 
-        printf("Parabéns, você escolheu Caçador\n");
+        printf("Parabens, voce escolheu Cacador\n");
 
         printf("Escolha sua arma:\n[1] - Punhal\n[2] - Arco");
         scanf("%d", &arma);
@@ -78,7 +78,7 @@ void CriandoPersonagem(personagem_principal *personagem)
     case 3:
         personagem_principal_criarMago(personagem);
 
-        printf("Parabéns, você escolheu Mago\n");
+        printf("Parabéns, voce escolheu Mago\n");
 
         printf("Escolha sua arma:\n[1] - Fogo\n[2] - Gelo");
         scanf("%d", &arma);
