@@ -7,6 +7,8 @@
 #define CLEAR "cls"
 #endif
 
+#define MAX_STRING_SIZE 256
+
 void clearBuffer();
 void TratamentoDeErro();
 void RemoverNovaLinhaDaString(char string[]);

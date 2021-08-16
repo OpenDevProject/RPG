@@ -36,6 +36,9 @@ void MenuPrincipal(personagem_principal *personagem)
         puts("[1] - Iniciar Jogo");
         puts("[2] - Créditos");
         puts("[3] - Sair");
+        
+        scanf("%d", &opcaoMenuPrincipal);
+        clearBuffer();
 
         switch (opcaoMenuPrincipal)
         {
@@ -55,5 +58,5 @@ void MenuPrincipal(personagem_principal *personagem)
         default:
             TratamentoDeErro();
         }
-    } while (1);
+    } while (opcaoMenuPrincipal);
 }

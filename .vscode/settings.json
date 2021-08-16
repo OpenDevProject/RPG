@@ -4,6 +4,7 @@
         "personagem_principal.h": "c",
         "criacao_personagem.h": "c",
         "cstdlib": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "item.h": "c"
     }
 }

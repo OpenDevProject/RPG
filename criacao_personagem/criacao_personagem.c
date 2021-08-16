@@ -31,7 +31,7 @@ void CriandoPersonagem(personagem_principal *personagem)
 
     escolherClasse(personagem);
 
-    while (!(personagem->classe == 1 && personagem->classe == 2 && personagem->classe == 3))
+    while (personagem->classe != 1 && personagem->classe != 2 && personagem->classe != 3)
     {
         escolherClasse(personagem);
     }
