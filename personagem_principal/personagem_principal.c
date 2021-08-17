@@ -13,6 +13,8 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem)
     personagem->vidaMax = personagem->vida;
     personagem->def = 20;
     personagem->mana = 5;
+    personagem->velocidade = 4;
+    personagem->arma = 1;
 }
 
 /**
@@ -26,8 +28,10 @@ void personagem_principal_criarCacador(personagem_principal *personagem)
     personagem->matk = 5;
     personagem->vida = 10;
     personagem->vidaMax = personagem->vida;
-    personagem->def = 15;
+    personagem->def = 5;
     personagem->mana = 5;
+    personagem->velocidade = 8;
+    personagem->arma = 3;
 }
 
 /**
@@ -43,6 +47,8 @@ void personagem_principal_criarMago(personagem_principal *personagem)
     personagem->vidaMax = personagem->vida;
     personagem->def = 5;
     personagem->mana = 20;
+    personagem->velocidade = 6;
+    personagem->arma = 5;
 }
 
 /**
@@ -53,7 +59,7 @@ void personagem_principal_criarMago(personagem_principal *personagem)
  */
 void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *personagem)
 {
-    personagem->vida += vidaParaRecuperar;
+    personagem->vida = personagem->vida + vidaParaRecuperar;
     if (personagem->vida > personagem->vidaMax)
         personagem->vida = personagem->vidaMax;
 }

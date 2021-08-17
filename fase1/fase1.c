@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "../sistema_batalha/batalha.h"
+#include "../inimigo/inimigo.h"
 #include "../personagem_principal/personagem_principal.h"
 
 /**
@@ -12,9 +14,10 @@
  */
 void Fase1(personagem_principal *personagem)
 {
+    inimigo goblin;
     puts("[rei] Voce e o mercenario contratado? ");
     sleep(1);
-    puts("[jogador] Sim, estou aqui pela missao de execuçao do Dragao Aither.");
+    puts("[jogador] Sim, estou aqui pela missao de execucao do Dragao Aither.");
     sleep(1.5);
     puts("[rei] Ja matou algum monstro? ");
     sleep(1);
@@ -22,13 +25,13 @@ void Fase1(personagem_principal *personagem)
     sleep(1);
     puts("[rei] E voce esta confiante em completar essa missao?");
     sleep(1.5);
-    puts("[jogador] Para tudo ha uma primeira vez, me esforçarei para trazer uma escama de Aither para voce.");
+    puts("[jogador] Para tudo ha uma primeira vez, me esforcarei para trazer uma escama de Aither para voce.");
     sleep(2);
-    puts("[rei] Voce deve começar matando os tres Wyverns guardiões para se provar competente o suficiente.");
+    puts("[rei] Voce deve comecar matando os tres Wyverns guardioes para se provar competente o suficiente.");
     sleep(2.5);
     puts("[rei] Nao enviaremos jovens inexperientes para sua morte!");
     sleep(2);
-    puts("[rei] Leve essa espada e algumas poções para sua aventura na Floresta Mydra, na qual voce executara o primeiro Wyvern, Radamanthys.");
+    puts("[rei] Leve essa espada e algumas pocoes para sua aventura na Floresta Mydra, na qual voce executara o primeiro Wyvern, Radamanthys.");
     
     item espada = ITEM_ESPADA;
     espada.quant = 1;
@@ -39,14 +42,8 @@ void Fase1(personagem_principal *personagem)
     item_AdicionarItemAoInventario(espada, personagem->inventario);
     item_AdicionarItemAoInventario(pocao, personagem->inventario);
 
-    for (int i = 0; i < MAX_INVENTARIO_SIZE; i++)
-    {
-        printf("%s - %d\n", personagem->inventario[i].nome, personagem->inventario[i].quant);
-    }
-    
-
     sleep(2.5);
-    puts("(Apos receber a espada e as poções voce parte para a Floresta Mydra para enfrentar Radamanthys.)");
+    puts("(Apos receber a espada e as pocoes voce parte para a Floresta Mydra para enfrentar Radamanthys.)");
     sleep(1);
     puts("(No caminho para a floresta Mydra voce encontra uma placa descrevendo os perigosos monstros.)");
     sleep(1);
@@ -66,4 +63,6 @@ void Fase1(personagem_principal *personagem)
     sleep(1);
     puts("[adversario]");
     sleep(1);
+    inimigo_criarGlobin(&goblin);
+    batalha_menu(personagem, &goblin);
 }

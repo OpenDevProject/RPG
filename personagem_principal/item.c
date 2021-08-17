@@ -33,11 +33,18 @@ int item_encontrarItemNoInventario(item inventario[], item itemAProcurar)
     }
 }
 
+/**
+ * @brief Usa um item do inventario
+ * 
+ * @param itemParaUsar A struct item que será usada
+ * @param personagem O endereco do personagem a remover do inventario
+ * @param inventario O array que guarda o inventario
+ */
 void item_UsarItemDoInventario(item itemParaUsar, personagem_principal *personagem, item inventario[])
 {
     for(int i = 0; i < MAX_INVENTARIO_SIZE; i++)
     {
-        if(strcmp(inventario[i].nome, itemParaUsar.nome) == 0)
+        if(strcmp(inventario[i].nome, itemParaUsar.nome) == 0 && strcmp(itemParaUsar.nome, "Pocao de vida") == 0)
         {   
             inventario[i].quant--;
             personagem_recuperarVida(2, personagem);

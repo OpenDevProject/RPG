@@ -8,7 +8,9 @@ RPG*: \
 	exit/exit.o \
 	introducao/introducao.o \
 	menu_principal/menu_principal.o \
-	fase1/fase1.o 
+	fase1/fase1.o \
+	inimigo/inimigo.o \
+	sistema_batalha/batalha.o
 	gcc -o RPG \
 		personagem_principal/personagem_principal.o \
 		personagem_principal/item.o \
@@ -19,4 +21,6 @@ RPG*: \
 		exit/exit.o \
 		introducao/introducao.o \
 		menu_principal/menu_principal.o \
-		fase1/fase1.o 
+		fase1/fase1.o \
+		inimigo/inimigo.o \
+		sistema_batalha/batalha.o

@@ -14,9 +14,9 @@ void Introducao(personagem_principal personagem)
     sleep( 1.5 );
     puts(" - Voce esta ai?");
     sleep( 1.5 );
-    puts(" - Nós precisamos de voce, o rei mandou chama-lo");
+    puts(" - Nos precisamos de voce, o rei mandou chama-lo");
     sleep( 1 );
-    puts(" - Por favor, voce e nossa unica esperança...");
+    puts(" - Por favor, voce e nossa unica esperanca...");
     sleep( 2 );
     puts(" - Qual e o seu nome? ");
     sleep( 1 );

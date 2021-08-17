@@ -23,6 +23,8 @@ typedef struct
     int vidaMax;
     int def;
     int mana;
+    int velocidade;
+    int arma;
     item inventario[MAX_INVENTARIO_SIZE];
 } personagem_principal;
 

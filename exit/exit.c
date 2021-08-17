@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * @brief Sai do programa
@@ -16,6 +17,7 @@ int Exit()
         system(CLEAR);
         printf("Saindo...\n");
         printf("TIMER: %d\n", i);
+        sleep(1);
     }
     return 0;
 }

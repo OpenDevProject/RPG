@@ -5,6 +5,7 @@
         "criacao_personagem.h": "c",
         "cstdlib": "c",
         "algorithm": "c",
-        "item.h": "c"
+        "item.h": "c",
+        "fase1.h": "c"
     }
 }
