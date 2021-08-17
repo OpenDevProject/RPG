@@ -16,9 +16,9 @@
  */
 void IniciandoHistoria(personagem_principal *personagem)
 {
-    CriandoPersonagem(personagem);
-    Introducao(*personagem);
-    Fase1(personagem);
+  CriandoPersonagem(personagem);
+  Introducao(*personagem);
+  Fase1(personagem);
 }
 
 /**
@@ -28,36 +28,38 @@ void IniciandoHistoria(personagem_principal *personagem)
  */
 void MenuPrincipal(personagem_principal *personagem)
 {
-    int opcaoMenuPrincipal;
+  int opcaoMenuPrincipal;
 
-    do
+  do
+  {
+    // Inicializa o inventario
+    item_CriarArrayItem(personagem->inventario);
+    puts("MENU PRINCIPAL");
+    puts("[1] - Iniciar Jogo");
+    puts("[2] - Creditos");
+    puts("[3] - Sair");
+
+    scanf("%d", &opcaoMenuPrincipal);
+    clearBuffer();
+
+    switch (opcaoMenuPrincipal)
     {
-        puts("MENU PRINCIPAL");
-        puts("[1] - Iniciar Jogo");
-        puts("[2] - Creditos");
-        puts("[3] - Sair");
-        
-        scanf("%d", &opcaoMenuPrincipal);
-        clearBuffer();
 
-        switch (opcaoMenuPrincipal)
-        {
+    case 1:
+      IniciandoHistoria(personagem);
+      break;
 
-        case 1:
-            IniciandoHistoria(personagem);
-            break;
+    case 2:
+      puts("Creditos: Tiringa");
+      break;
 
-        case 2:
-            puts("Creditos: Tiringa");
-            break;
+    case 3:
+      Exit();
+      return;
+      break;
 
-        case 3:
-            Exit();
-            return;
-            break;
-
-        default:
-            TratamentoDeErro();
-        }
-    } while (opcaoMenuPrincipal);
+    default:
+      TratamentoDeErro();
+    }
+  } while (opcaoMenuPrincipal);
 }

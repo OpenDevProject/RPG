@@ -5,10 +5,7 @@ personagem_principal personagem;
 
 int main(void)
 {
-    // Inicializa o inventario
-    item_CriarArrayItem(personagem.inventario);
+  MenuPrincipal(&personagem);
 
-    MenuPrincipal(&personagem);
-
-    return 0;
+  return 0;
 }

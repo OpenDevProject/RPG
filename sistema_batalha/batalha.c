@@ -9,57 +9,57 @@
 
 int flush()
 {
-    puts("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    return 0;
+  puts("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+  return 0;
 }
 
 void batalha_fsair(personagem_principal *personagem)
 {
-    if (personagem->vida <= 0)
-    {
-        printf("GAME OVER!\n\nVoce foi derrotado!\nTente novamente!\n");
-        sleep(5);
-        exit(0);
-    }
-    else
-    {
-        printf("Voce derrotou seu adversario!\nDigite qualquer tecla para proseguir!\n");
-        getchar();
-    }
+  if (personagem->vida <= 0)
+  {
+    printf("GAME OVER!\n\nVoce foi derrotado!\nTente novamente!\n");
+    sleep(5);
+    exit(0);
+  }
+  else
+  {
+    printf("Voce derrotou seu adversario!\nDigite qualquer tecla para proseguir!\n");
+    getchar();
+  }
 }
 
 void tratamento(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
-    puts("Opcao invalida!");
-    sleep(4);
-    flush();
-    batalha_menu(personagem, inimigoParaBatalha);
+  puts("Opcao invalida!");
+  sleep(1.5);
+  flush();
+  batalha_menu(personagem, inimigoParaBatalha);
 }
 
 int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
-    int dado = RolarDado();
-    inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->atk;
-    printf("%d\n", inimigoParaBatalha->vida);
-    if (inimigoParaBatalha->vida <= 0)
-    {
-        batalha_fsair(personagem);
-        return 0;
-    }
-    batalha_menu(personagem, inimigoParaBatalha);
+  int dado = RolarDado();
+  inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->atk;
+  printf("%d\n", inimigoParaBatalha->vida);
+  if (inimigoParaBatalha->vida <= 0)
+  {
+    batalha_fsair(personagem);
+    return 0;
+  }
+  batalha_menu(personagem, inimigoParaBatalha);
 }
 
 int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
-    int dado = RolarDado();
-    printf("Esse foi o seu resultado: %d\n", dado);
-    personagem->vida = personagem->vida - inimigoParaBatalha->atk;
-    if (personagem->vida <= 0)
-    {
-        batalha_fsair(personagem);
-        return 0;
-    }
-    batalha_menu(personagem, inimigoParaBatalha);
+  int dado = RolarDado();
+  printf("Esse foi o seu resultado: %d\n", dado);
+  personagem->vida = personagem->vida - inimigoParaBatalha->atk;
+  if (personagem->vida <= 0)
+  {
+    batalha_fsair(personagem);
+    return 0;
+  }
+  batalha_menu(personagem, inimigoParaBatalha);
 }
 
 // void batalha_atacar_com_arma(personagem_principal *personagem, inimigo *inimigoParaBatalha, int inimigoEMaisRapido)
@@ -180,27 +180,35 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
 //     }
 // }
 
-void batalha_inventario(personagem_principal *personagem, inimigo *inimigoParaBatalha)
+int batalha_inventario(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
-    int i = 0, opcao;
-    for (i; i < MAX_INVENTARIO_SIZE; i++)
+  int i = 0, opcao, validos[MAX_INVENTARIO_SIZE];
+  for (i; i < MAX_INVENTARIO_SIZE; i++)
+  {
+    if (strcmp(personagem->inventario[i].nome, "VAZIO") != 0 && personagem->inventario[i].quant != -1)
     {
-        if (strcmp(personagem->inventario[i].nome, "VAZIO") != 0 && personagem->inventario[i].quant != -1)
-        {
-            printf("[%d] - %s - %d\n", i + 1, personagem->inventario[i].nome, personagem->inventario[i].quant);
-        }
+      printf("[%d] - %s - %d\n", i + 1, personagem->inventario[i].nome, personagem->inventario[i].quant);
+      validos[i] = i + 1;
     }
-    printf("[%d] - %s\n", i + 1, "Sair");
-    scanf("%d", &opcao);
-    clearBuffer();
-    if (opcao == MAX_INVENTARIO_SIZE + 1)
+  }
+  printf("[%d] - %s\n", i + 1, "Sair");
+  scanf("%d", &opcao);
+  clearBuffer();
+  if (opcao == MAX_INVENTARIO_SIZE + 1)
+  {
+    batalha_menu(personagem, inimigoParaBatalha);
+    return 0;
+  }
+  for (int j = 0; j < MAX_INVENTARIO_SIZE; j++)
+  {
+    if (opcao == validos[j])
     {
-        batalha_menu(personagem, inimigoParaBatalha);
+      item_UsarItemDoInventario(personagem->inventario[opcao - 1], personagem, personagem->inventario);
+      return 1;
     }
-    else
-    {
-        item_UsarItemDoInventario(personagem->inventario[opcao - 1], personagem, personagem->inventario);
-    }
+  }
+  tratamento(personagem, inimigoParaBatalha);
+  return 0;
 }
 
 // typedef struct
@@ -214,22 +222,22 @@ void batalha_inventario(personagem_principal *personagem, inimigo *inimigoParaBa
 
 void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha) // Colocar o inimigo aqui
 {
-    int opcao;
+  int opcao, utilizouAlgo;
 
-    puts("================");
+  puts("================");
 
-    printf("VIDA DO %s: %d\n", personagem->nome, personagem->vida);
-    printf("VIDA DO %s: %d\n", inimigoParaBatalha->nome, inimigoParaBatalha->vida);
+  printf("VIDA DO %s: %d\n", personagem->nome, personagem->vida);
+  printf("VIDA DO %s: %d\n", inimigoParaBatalha->nome, inimigoParaBatalha->vida);
 
-    puts("================");
-    puts("Digite uma opcao");
-    puts("[1] - Atacar");
-    puts("[2] - Inventario");
-    // puts("[3] - Sair");
-    puts("================");
-    scanf("%d", &opcao);
-    clearBuffer();
-    /*
+  puts("================");
+  puts("Digite uma opcao");
+  puts("[1] - Atacar");
+  puts("[2] - Inventario");
+  // puts("[3] - Sair");
+  puts("================");
+  scanf("%d", &opcao);
+  clearBuffer();
+  /*
     Comparar speed para decidir quem joga primeiro.
     if player.speed>monster.speed{
       switch para decidir acao do player
@@ -243,56 +251,60 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
       checar se monster morreu e tomar decisao
     }
     */
-    if (personagem->velocidade > inimigoParaBatalha->velocidade)
+  if (personagem->velocidade > inimigoParaBatalha->velocidade)
+  {
+    switch (opcao)
     {
-        switch (opcao)
-        {
-        case 1:
-            batalha_personagemAtaca(personagem, inimigoParaBatalha);
-            if (inimigoParaBatalha->vida <= 0)
-                break;
-            batalha_inimigoAtaca(personagem, inimigoParaBatalha);
+    case 1:
+      batalha_personagemAtaca(personagem, inimigoParaBatalha);
+      if (inimigoParaBatalha->vida <= 0)
+        break;
+      batalha_inimigoAtaca(personagem, inimigoParaBatalha);
 
-            break;
-        case 2:
-            batalha_inventario(personagem, inimigoParaBatalha);
-            batalha_inimigoAtaca(personagem, inimigoParaBatalha);
+      break;
+    case 2:
+      utilizouAlgo = batalha_inventario(personagem, inimigoParaBatalha);
+      if (utilizouAlgo)
+      {
+        batalha_inimigoAtaca(personagem, inimigoParaBatalha);
+      }
+      break;
+    // case 3:
+    //     batalha_fsair(personagem);
 
-            break;
-        // case 3:
-        //     batalha_fsair(personagem);
-
-        //     break;
-        default:
-            tratamento(personagem, inimigoParaBatalha);
-        }
-        if (inimigoParaBatalha->vida <= 0)
-        {
-        }
+    //     break;
+    default:
+      tratamento(personagem, inimigoParaBatalha);
     }
-    else
+    if (inimigoParaBatalha->vida <= 0)
     {
-        switch (opcao)
-        {
-        case 1:
-            batalha_inimigoAtaca(personagem, inimigoParaBatalha);
-            batalha_personagemAtaca(personagem, inimigoParaBatalha);
-
-            break;
-        case 2:
-            batalha_inimigoAtaca(personagem, inimigoParaBatalha);
-            batalha_inventario(personagem, inimigoParaBatalha);
-
-            break;
-        // case 3:
-        //     batalha_fsair(personagem);
-
-        //     break;
-        default:
-            tratamento(personagem, inimigoParaBatalha);
-        }
     }
+  }
+  else
+  {
+    switch (opcao)
+    {
+    case 1:
+      batalha_inimigoAtaca(personagem, inimigoParaBatalha);
+      batalha_personagemAtaca(personagem, inimigoParaBatalha);
 
-    // Checar se player morreu ou monster morreu e executar o batalha_menu novamente
-    // baseado nisso
+      break;
+    case 2:
+      utilizouAlgo = batalha_inventario(personagem, inimigoParaBatalha);
+      if (utilizouAlgo)
+      {
+        batalha_inimigoAtaca(personagem, inimigoParaBatalha);
+      }
+      break;
+    // case 3:
+    //     batalha_fsair(personagem);
+
+    //     break;
+    default:
+      tratamento(personagem, inimigoParaBatalha);
+    }
+  }
+
+  // Checar se player morreu ou monster morreu e executar o batalha_menu novamente
+  // baseado nisso
 }
