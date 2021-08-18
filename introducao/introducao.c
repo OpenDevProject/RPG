@@ -1,4 +1,5 @@
 #include "introducao.h"
+#include "../utils/utils.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -11,15 +12,15 @@
 void Introducao(personagem_principal personagem)
 {
     puts(" - Ei! Ei!");
-    sleep( 1.5 );
+    SLEEP;
     puts(" - Voce esta ai?");
-    sleep( 1.5 );
+    SLEEP;
     puts(" - Nos precisamos de voce, o rei mandou chama-lo");
-    sleep( 1 );
+    SLEEP;
     puts(" - Por favor, voce e nossa unica esperanca...");
-    sleep( 2 );
+    SLEEP;
     puts(" - Qual e o seu nome? ");
-    sleep( 1 );
+    SLEEP;
     printf(" - meu nome e: %s\n", personagem.nome );
     puts("Certo, vamos, o rei precisa de voce. ");
     puts("(Voce cavalga ate a cidade do reino para se encontrar com o rei.) ");

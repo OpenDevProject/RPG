@@ -15,23 +15,23 @@ int RolarDado()
 {
     int dado;
     srand(time(NULL));
-    printf("O resultado foi: %d\n", rand() % RANDOM_MAX);
-    if ( rand() % RANDOM_MAX >= 0 && rand() % RANDOM_MAX <= 5){
+    int numeroGerado = rand() % RANDOM_MAX;
+    if (numeroGerado >= 0 && numeroGerado <= 5)
+    {
         dado = 0;
-
     }
-    else if ( rand() % RANDOM_MAX >= 6 && rand() % RANDOM_MAX <= 11 ){
+    else if (numeroGerado >= 6 && numeroGerado <= 11)
+    {
         dado = 1;
-
     }
-    else if ( rand() % RANDOM_MAX >= 12 && rand() % RANDOM_MAX <= 17 ){
+    else if (numeroGerado >= 12 && numeroGerado <= 17)
+    {
         dado = 2;
-
     }
-    else if ( rand() % RANDOM_MAX >= 18 && rand() % RANDOM_MAX <= 20 ){
+    else if (numeroGerado >= 18 && numeroGerado <= 20)
+    {
         dado = 3;
-        
     }
-
+    printf("O resultado foi: %d\n", dado);
     return dado;
 }

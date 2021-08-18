@@ -6,6 +6,8 @@
         "cstdlib": "c",
         "algorithm": "c",
         "item.h": "c",
-        "fase1.h": "c"
+        "fase1.h": "c",
+        "unistd.h": "c",
+        "inimigo.h": "c"
     }
 }

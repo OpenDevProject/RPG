@@ -12,5 +12,10 @@ typedef struct inimigo {
 } inimigo;
 
 void inimigo_criarGlobin(inimigo *goblin);
+void inimigo_criarSlime(inimigo *slime);
+void inimigo_criarOrc(inimigo *orc);
+void inimigo_criarElfo(inimigo *elfo);
+void inimigo_criarBruxa(inimigo *bruxa);
+void inimigo_criarGrifo(inimigo *grifo);
 
 #endif

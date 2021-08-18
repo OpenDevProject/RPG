@@ -8,6 +8,7 @@
 #endif
 
 #define MAX_STRING_SIZE 256
+#define SLEEP sleep(3);
 
 void clearBuffer();
 void TratamentoDeErro();

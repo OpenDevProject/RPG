@@ -28,9 +28,16 @@ void batalha_fsair(personagem_principal *personagem)
   }
 }
 
-void tratamento(personagem_principal *personagem, inimigo *inimigoParaBatalha)
+void tratamento(personagem_principal *personagem, inimigo *inimigoParaBatalha, int usandoItem)
 {
-  puts("Opcao invalida!");
+  if (usandoItem)
+  {
+    puts("Esse item nao pode ser utilizado!");
+  }
+  else
+  {
+    puts("Opcao invalida!");
+  }
   sleep(1.5);
   flush();
   batalha_menu(personagem, inimigoParaBatalha);
@@ -40,7 +47,6 @@ int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoPa
 {
   int dado = RolarDado();
   inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->atk;
-  printf("%d\n", inimigoParaBatalha->vida);
   if (inimigoParaBatalha->vida <= 0)
   {
     batalha_fsair(personagem);
@@ -191,23 +197,23 @@ int batalha_inventario(personagem_principal *personagem, inimigo *inimigoParaBat
       validos[i] = i + 1;
     }
   }
-  printf("[%d] - %s\n", i + 1, "Sair");
+  printf("[%d] - %s\n", 0, "Sair");
   scanf("%d", &opcao);
   clearBuffer();
-  if (opcao == MAX_INVENTARIO_SIZE + 1)
+  if (opcao == 0)
   {
     batalha_menu(personagem, inimigoParaBatalha);
     return 0;
   }
   for (int j = 0; j < MAX_INVENTARIO_SIZE; j++)
   {
-    if (opcao == validos[j])
+    if (opcao == validos[j] && personagem->inventario[opcao - 1].usavel)
     {
       item_UsarItemDoInventario(personagem->inventario[opcao - 1], personagem, personagem->inventario);
       return 1;
     }
   }
-  tratamento(personagem, inimigoParaBatalha);
+  tratamento(personagem, inimigoParaBatalha, 1);
   return 0;
 }
 
@@ -274,7 +280,7 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 
     //     break;
     default:
-      tratamento(personagem, inimigoParaBatalha);
+      tratamento(personagem, inimigoParaBatalha, 0);
     }
     if (inimigoParaBatalha->vida <= 0)
     {
@@ -301,7 +307,7 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 
     //     break;
     default:
-      tratamento(personagem, inimigoParaBatalha);
+      tratamento(personagem, inimigoParaBatalha, 0);
     }
   }
 

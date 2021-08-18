@@ -1,6 +1,8 @@
 #include "criacao_personagem.h"
 #include "../utils/utils.h"
 
+#include <string.h>
+
 #include <stdio.h>
 
 /**
@@ -26,9 +28,17 @@ void CriandoPersonagem(personagem_principal *personagem)
     int arma;
     printf("Digite o nome do seu personagem: ");
 
-    fgets(personagem->nome, MAX_STRING_NAME, stdin);
-    RemoverNovaLinhaDaString(personagem->nome);
+    scanf("%s", personagem->nome);
+    //RemoverNovaLinhaDaString(temps);
+    while (strlen(personagem->nome) > 10)
+    {
+        printf("\nO nome do personagem so pode ter ate 10 caracteres.\n");
+        printf("Digite o nome do seu personagem: ");
 
+        scanf("%s", personagem->nome);
+    }
+
+    printf("%d\n", personagem->classe);
     escolherClasse(personagem);
 
     while (personagem->classe != 1 && personagem->classe != 2 && personagem->classe != 3)

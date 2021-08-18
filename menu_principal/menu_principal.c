@@ -8,6 +8,7 @@
 #include "../fase1/fase1.h"
 
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * @brief Inicia a história do jogo
@@ -18,6 +19,7 @@ void IniciandoHistoria(personagem_principal *personagem)
 {
   CriandoPersonagem(personagem);
   Introducao(*personagem);
+  sleep(2);
   Fase1(personagem);
 }
 
