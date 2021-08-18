@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="#"><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/OpenDevProject/RPG"></a>
-    <a href="https://discord.gg/TyVAXNk93A"><img alt="Discord" src="https://img.shields.io/discord/872987245152460820"></a>
+    <a href="https://discord.gg/TyVAXNk93A" target="_blank"><img alt="Discord" src="https://img.shields.io/discord/872987245152460820"></a>
     <a href="#"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/OpenDevProject/RPG"></a>
     <a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/OpenDevProject/RPG"></a>
 </p>
