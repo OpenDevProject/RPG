@@ -31,3 +31,7 @@ void RemoverNovaLinhaDaString(char string[])
     if (string[strlen(string) - 1] == '\n')
         string[strlen(string) - 1] = '\0';
 }
+
+void cringe(){
+    printf("uma pena, voce eh CRINGE!!!!!");
+}

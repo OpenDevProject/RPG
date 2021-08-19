@@ -43,6 +43,7 @@ void CriandoPersonagem(personagem_principal *personagem)
 
     while (personagem->classe != 1 && personagem->classe != 2 && personagem->classe != 3)
     {
+        printf("Digite uma opcao valida!!");
         escolherClasse(personagem);
     }
     /*
@@ -73,8 +74,8 @@ void CriandoPersonagem(personagem_principal *personagem)
             printf("Parabens, voce escolheu o machado\n");
             personagem->arma = 2;
             break;
-
         default:
+            TratamentoDeErro();
             break;
         }
         break;
@@ -92,13 +93,16 @@ void CriandoPersonagem(personagem_principal *personagem)
         {
         case 1:
             printf("Parabens, voce escolheu o punhal\n");
+            personagem->arma = 3;
             break;
 
         case 2:
             printf("Parabens, voce escolheu o arco\n");
+            personagem->arma = 4;
             break;
 
         default:
+            TratamentoDeErro();
             break;
         }
 
@@ -112,6 +116,23 @@ void CriandoPersonagem(personagem_principal *personagem)
         scanf("%d", &arma);
         puts("Opcao: ");
         clearBuffer();
+
+        switch (arma)
+        {
+        case 1:
+            printf("Parabens, voce escolheu o fogo\n");
+            personagem->arma = 5;
+            break;
+
+        case 2:
+            printf("Parabens, voce escolheu o gelo\n");
+            personagem->arma = 6;
+            break;
+
+        default:
+            TratamentoDeErro();
+            break;
+        }
 
         break;
     }

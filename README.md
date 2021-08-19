@@ -23,6 +23,8 @@
 
 RPG created in order to practice and improve the knowledge in the C language and have better teamwork. It is in a very early development stage and the team is always working to make the project better.
 
+[![DEMO](https://raw.githubusercontent.com/OpenDevProject/RPG/main/DEMO/DEMO.PNG)](#)
+
 ## Synopsis
 
 The main character finds himself in a realm that is threatened by the existence of the three great Wyverns and the ancient dragon and he, as a mercenary skill, has been hired by the king to save this realm.
@@ -44,6 +46,8 @@ After that the ```RPG.exe``` file will be created, you can run this file using t
 ## Introdução
 
 RPG criado com o intuito de praticar a linguagem C e melhorar a habilidade de trabalhar em equipe. Atualmente se encontra em pré alfa com um continuo trabalho da equipe de tentar sempre melhora-lo.
+
+[![DEMO](https://raw.githubusercontent.com/OpenDevProject/RPG/main/DEMO/DEMO.PNG)](#)
 
 ## Sinopse
 

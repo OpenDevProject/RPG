@@ -19,7 +19,7 @@ void IniciandoHistoria(personagem_principal *personagem)
 {
   CriandoPersonagem(personagem);
   Introducao(*personagem);
-  sleep(2);
+  SLEEP;
   Fase1(personagem);
 }
 

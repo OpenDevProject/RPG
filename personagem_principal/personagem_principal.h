@@ -36,6 +36,11 @@ void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *perso
 #define ITEM_VAZIO {"VAZIO", -1, 0} 
 #define ITEM_POCAO {"Pocao de vida", 0, 1}
 #define ITEM_ESPADA {"Espada", 0, 0}
+#define ITEM_MACHADO {"Machado", 0, 0}
+#define ITEM_PUNHAL {"Punhal", 0, 0}
+#define ITEM_ARCO {"Arco", 0, 0}
+#define ITEM_FOGO {"Fogo", 0, 0}
+#define ITEM_GELO {"Gelo", 0, 0}
 
 int item_encontrarVazioNoInventario(item inventario[]);
 int item_encontrarItemNoInventario(item inventario[], item itemAProcurar);

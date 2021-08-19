@@ -26,28 +26,62 @@ void Fase1(personagem_principal *personagem)
     SLEEP;
     puts("[rei] E voce esta confiante em completar essa missao?");
     SLEEP;
-    puts("[jogador] Para tudo ha uma primeira vez, me esforcarei para trazer uma escama de Aither para voce.");
+    puts("[jogador] Para tudo ha uma primeira vez, me esforcarei \n"
+    "para trazer uma escama de Aither para voce.");
     SLEEP;
-    puts("[rei] Voce deve comecar matando os tres Wyverns guardioes para se provar competente o suficiente.");
+    puts("[rei] Voce deve comecar matando os tres Wyverns guardioes\n"
+    "para se provar competente o suficiente.");
     SLEEP;
     puts("[rei] Nao enviaremos jovens inexperientes para sua morte!");
     SLEEP;
-    puts("[rei] Leve essa espada e algumas pocoes para sua aventura na Floresta Mydra,\n"
-    "na qual voce executara o primeiro Wyvern, Radamanthys.");
-    
+    printf("[rei] Leve essa espada e algumas pocoes para sua aventura na Floresta Mydra,\n"
+    "na qual voce executara o primeiro Wyvern, Radamanthys.\n", personagem->arma);
+
+    switch (personagem->arma)
+    {
+    case 1: ;
     item espada = ITEM_ESPADA;
     espada.quant = 1;
+    item_AdicionarItemAoInventario(espada, personagem->inventario);
+        break;
+    case 2: ;
+    item machado = ITEM_MACHADO;
+    machado.quant = 1;
+    item_AdicionarItemAoInventario(machado, personagem->inventario);
+        break;
+    case 3: ;
+    item punhal = ITEM_PUNHAL;
+    punhal.quant = 1;
+    item_AdicionarItemAoInventario(punhal, personagem->inventario);
+        break;
+    case 4: ;
+    item arco = ITEM_ARCO;
+    arco.quant = 1;
+    item_AdicionarItemAoInventario(arco, personagem->inventario);
+        break;
+    case 5: ;
+    item fogo = ITEM_FOGO;
+    fogo.quant = 1;
+    item_AdicionarItemAoInventario(fogo, personagem->inventario);
+        break;
+    case 6: ;
+    item gelo = ITEM_GELO;
+    gelo.quant = 1;
+    item_AdicionarItemAoInventario(gelo, personagem->inventario);
+        break;
+    }
     
     item pocao = ITEM_POCAO;
     pocao.quant = 10;
     
-    item_AdicionarItemAoInventario(espada, personagem->inventario);
     item_AdicionarItemAoInventario(pocao, personagem->inventario);
 
     SLEEP;
-    puts("(Apos receber a espada e as pocoes voce parte para a Floresta Mydra para enfrentar Radamanthys.)");
+    puts("(Apos receber a espada e as pocoes voce parte \n"
+    "para a Floresta Mydra para enfrentar Radamanthys.)");
     SLEEP;
-    puts("(No caminho para a floresta Mydra voce encontra uma placa descrevendo os perigosos monstros.)");
+    puts("(No caminho para a floresta Mydra voce encontra \n"
+    "uma placa descrevendo os perigosos monstros.)");
     SLEEP;
     puts("--------------------- Goblins -------------------");
     puts("--------------------- Slime ---------------------");
@@ -59,7 +93,7 @@ void Fase1(personagem_principal *personagem)
     SLEEP;
     puts("[jogador] Entao essa e a Floresta Mydra!");
     SLEEP;
-    puts("(O ventro sopra e nosso heroi percebe o quao profunda e escura e a floresta.) ");
+    puts("(O vento sopra e nosso heroi percebe o quao profunda e escura eh a floresta.) ");
     SLEEP;
     puts("(Eis que um Slime roxo gosmento pula em sua direcao com rapidez,\n" 
     "voce so tem tempo de se esquivar e se joga para esquerda)");
@@ -67,7 +101,7 @@ void Fase1(personagem_principal *personagem)
     puts("[jogador] Realmente nao mentiram quando falaram que os Slimes são muito rapidos,\n"
     "entao eles devem expelir acido pela boca");
     SLEEP;
-    printf("Voce se levante, limpa o braço esquerdo que ficou coberto de lama e\n" 
+    printf("Voce se levanta, limpa o braço esquerdo que ficou coberto de lama e\n" 
     "pega sua arma e percebe que mais ao fundo no meio das arvores surgem mais slimes,\n"
     "voce conta por cima e sao no minimo 5\n");
     SLEEP;
@@ -96,15 +130,15 @@ void Fase1(personagem_principal *personagem)
     printf("[jogador] Tem varias qual delas?\n");
     printf("[Garota] A unica com tamanho normal\n");
     printf("[jogador] AHHHH\n");
-    printf("Voces entrao no forte e parece tudo baguncado e sujo e logo encontram a coisa da garota\n");
+    printf("Voces entrao no forte e parece tudo baguncado e sujo, e logo encontram as coisas da garota\n");
     printf("[jogador] Voce ainda nao falou seu nome\n");
     printf("[Garota] Ah, eu sou Olivia, e voce?\n");
     printf("[jogador], o que voce veio fazer aqui na Floresta Mydra?\n");
     printf("[Olivia] Matar o Dragao Aither\n");
-    printf("[jogador] Que? nao faz sentido eu que fui escolhido pelo Rei para matar ele\n");
+    printf("[jogador] Que? nao faz sentido... eu que fui escolhido pelo Rei para matar ele\n");
     printf("[Olivia] Entao pelo visto voce nao e o unico\n");
     printf("[jogador] Voce e mercenaria tambem?\n");
     printf("[Olivia] Nao, eu sou da guarda do Rei e me ofereci para matar o Dragao\n");
-    printf("");
-    printf("");
+    printf("\n");
+    printf("\n");
 }
