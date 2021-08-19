@@ -21,7 +21,10 @@ void Introducao(personagem_principal personagem)
     SLEEP;
     puts(" - Qual e o seu nome? ");
     SLEEP;
-    printf(" - meu nome e: %s\n", personagem.nome );
-    puts("Certo, vamos, o rei precisa de voce. ");
+    printf(" - meu nome eh %s\n", personagem.nome );
+    SLEEP;
+    puts(" - Certo, vamos, o rei precisa de voce. ");
+    SLEEP;
     puts("(Voce cavalga ate a cidade do reino para se encontrar com o rei.) ");
+    SLEEP;
 }

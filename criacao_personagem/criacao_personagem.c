@@ -13,7 +13,7 @@
 void escolherClasse(personagem_principal *personagem)
 {
     printf("Escolha sua classe:\n[1] - Guerreiro\n[2] - Cacador\n[3] - Mago\n");
-
+    printf("Escolha: ");
     scanf("%d", &personagem->classe);
     clearBuffer();
 }
@@ -37,8 +37,6 @@ void CriandoPersonagem(personagem_principal *personagem)
 
         scanf("%s", personagem->nome);
     }
-
-    printf("%d\n", personagem->classe);
     escolherClasse(personagem);
 
     while (personagem->classe != 1 && personagem->classe != 2 && personagem->classe != 3)
@@ -68,11 +66,13 @@ void CriandoPersonagem(personagem_principal *personagem)
         case 1:
             printf("Parabens, voce escolheu a espada\n");
             personagem->arma = 1;
+            strcpy(personagem->nomeArma, "Espada");
             break;
 
         case 2:
             printf("Parabens, voce escolheu o machado\n");
             personagem->arma = 2;
+            strcpy(personagem->nomeArma, "Machado");
             break;
         default:
             TratamentoDeErro();
@@ -85,8 +85,8 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Parabens, voce escolheu Cacador\n");
 
         printf("Escolha sua arma:\n[1] - Punhal\n[2] - Arco\n");
+        printf("escolha: ");
         scanf("%d", &arma);
-        puts("Opcao: ");
         clearBuffer();
 
         switch (arma)
@@ -94,11 +94,13 @@ void CriandoPersonagem(personagem_principal *personagem)
         case 1:
             printf("Parabens, voce escolheu o punhal\n");
             personagem->arma = 3;
+            strcpy(personagem->nomeArma, "Punhal");
             break;
 
         case 2:
             printf("Parabens, voce escolheu o arco\n");
             personagem->arma = 4;
+            strcpy(personagem->nomeArma, "Arco");
             break;
 
         default:
@@ -113,8 +115,8 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Parabéns, voce escolheu Mago\n");
 
         printf("Escolha sua arma:\n[1] - Fogo\n[2] - Gelo\n");
+        printf("escolha: ");
         scanf("%d", &arma);
-        puts("Opcao: ");
         clearBuffer();
 
         switch (arma)
@@ -122,11 +124,13 @@ void CriandoPersonagem(personagem_principal *personagem)
         case 1:
             printf("Parabens, voce escolheu o fogo\n");
             personagem->arma = 5;
+            strcpy(personagem->nomeArma, "Fogo");
             break;
 
         case 2:
             printf("Parabens, voce escolheu o gelo\n");
             personagem->arma = 6;
+            strcpy(personagem->nomeArma, "Gelo");
             break;
 
         default:
