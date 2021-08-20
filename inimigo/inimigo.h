@@ -4,6 +4,7 @@
 typedef struct inimigo {
     char nome[10];
     int atk;
+    int matk;
     int vida;
     int vidaMax;
     int def;

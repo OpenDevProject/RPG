@@ -1,5 +1,7 @@
 #include "personagem_principal.h"
 
+#include <string.h>
+
 /**
  * @brief Cria um novo guerreiro e guarda eles no personagem
  * 
@@ -14,7 +16,7 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem)
     personagem->def = 20;
     personagem->mana = 5;
     personagem->velocidade = 4;
-    personagem->arma = 1;
+    personagem->armaSelecionada.code = 1;
 }
 
 /**
@@ -31,7 +33,7 @@ void personagem_principal_criarCacador(personagem_principal *personagem)
     personagem->def = 5;
     personagem->mana = 5;
     personagem->velocidade = 8;
-    personagem->arma = 3;
+    personagem->armaSelecionada.code = 3;
 }
 
 /**
@@ -48,7 +50,7 @@ void personagem_principal_criarMago(personagem_principal *personagem)
     personagem->def = 5;
     personagem->mana = 20;
     personagem->velocidade = 6;
-    personagem->arma = 5;
+    personagem->armaSelecionada.code = 5;
 }
 
 /**
@@ -62,4 +64,46 @@ void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *perso
     personagem->vida = personagem->vida + vidaParaRecuperar;
     if (personagem->vida > personagem->vidaMax)
         personagem->vida = personagem->vidaMax;
+}
+
+void arma_criarEspada(personagem_principal *personagem)
+{
+    personagem->armaSelecionada.code = 1;
+    personagem->armaSelecionada.dano = 1 * (personagem->atk);
+    strcpy(personagem->armaSelecionada.nomeArma, "Espada"); 
+}
+
+void arma_criarMachado(personagem_principal *personagem)
+{
+    personagem->armaSelecionada.code = 2;
+    personagem->armaSelecionada.dano = 1.4 * (personagem->atk);
+    strcpy(personagem->armaSelecionada.nomeArma, "Machado");
+}
+
+void arma_criarPunhal(personagem_principal *personagem)
+{
+    personagem->armaSelecionada.code = 3;
+    personagem->armaSelecionada.dano = 1.05 * (personagem->atk);
+    strcpy(personagem->armaSelecionada.nomeArma, "Punhal");
+}
+
+void arma_criarArco(personagem_principal *personagem)
+{
+    personagem->armaSelecionada.code = 4;
+    personagem->armaSelecionada.dano = 0.95 * (personagem->atk);
+    strcpy(personagem->armaSelecionada.nomeArma, "Arco");
+}
+
+void arma_criarFogo(personagem_principal *personagem)
+{
+    personagem->armaSelecionada.code = 5;
+    personagem->armaSelecionada.dano = 1.2 * (personagem->atk);
+    strcpy(personagem->armaSelecionada.nomeArma, "Fogo");
+}
+
+void arma_criarGelo(personagem_principal *personagem)
+{
+    personagem->armaSelecionada.code = 6;
+    personagem->armaSelecionada.dano = 1.1 * (personagem->atk);
+    strcpy(personagem->armaSelecionada.nomeArma, "Gelo");
 }

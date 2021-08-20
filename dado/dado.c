@@ -16,6 +16,7 @@ int RolarDado()
     int dado;
     srand(time(NULL));
     int numeroGerado = rand() % RANDOM_MAX;
+    //printf("O seu resultado foi: %d", dado);
     if (numeroGerado >= 0 && numeroGerado <= 5)
     {
         dado = 0;
@@ -32,6 +33,5 @@ int RolarDado()
     {
         dado = 3;
     }
-    printf("O resultado foi: %d\n", dado);
     return dado;
 }

@@ -13,5 +13,6 @@
 void clearBuffer();
 void TratamentoDeErro();
 void RemoverNovaLinhaDaString(char string[]);
+void cringe();
 
 #endif

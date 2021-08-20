@@ -6,6 +6,13 @@
 #define MAX_STRING_NAME 10
 #define MAX_INVENTARIO_SIZE 50
 
+typedef struct arma
+{
+    char nomeArma[40];
+    int dano;
+    int code;
+} arma;
+
 typedef struct
 {
     char nome[MAX_STRING_SIZE];
@@ -17,15 +24,14 @@ typedef struct
 {
     char nome[MAX_STRING_NAME];
     int classe;
-    int atk;
+    float atk;
     int matk;
     int vida;
     int vidaMax;
     int def;
     int mana;
     int velocidade;
-    int arma;
-    char nomeArma[40];
+    arma armaSelecionada;
     item inventario[MAX_INVENTARIO_SIZE];
 } personagem_principal;
 
@@ -73,5 +79,12 @@ void item_AdicionarItemAoInventario(item itemParaAdicionar, item inventario[]);
 void item_UsarItemDoInventario(item itemParaUsar, personagem_principal *personagem, item inventario[]);
 void item_RemoverItemDoInventario(item itemParaRemover, item inventario[]);
 void item_CriarArrayItem(item inventario[]);
+
+void arma_criarEspada(personagem_principal *personagem);
+void arma_criarMachado(personagem_principal *personagem);
+void arma_criarPunhal(personagem_principal *personagem);
+void arma_criarArco(personagem_principal *personagem);
+void arma_criarFogo(personagem_principal *personagem);
+void arma_criarGelo(personagem_principal *personagem);
 
 #endif

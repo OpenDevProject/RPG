@@ -33,5 +33,5 @@ void RemoverNovaLinhaDaString(char string[])
 }
 
 void cringe(){
-    printf("uma pena, voce eh CRINGE!!!!!");
+    printf("uma pena, voce eh CRINGE!!!!!\n");
 }

@@ -65,14 +65,12 @@ void CriandoPersonagem(personagem_principal *personagem)
         {
         case 1:
             printf("Parabens, voce escolheu a espada\n");
-            personagem->arma = 1;
-            strcpy(personagem->nomeArma, "Espada");
+            arma_criarEspada(personagem);
             break;
 
         case 2:
             printf("Parabens, voce escolheu o machado\n");
-            personagem->arma = 2;
-            strcpy(personagem->nomeArma, "Machado");
+            arma_criarMachado(personagem);
             break;
         default:
             TratamentoDeErro();
@@ -93,14 +91,12 @@ void CriandoPersonagem(personagem_principal *personagem)
         {
         case 1:
             printf("Parabens, voce escolheu o punhal\n");
-            personagem->arma = 3;
-            strcpy(personagem->nomeArma, "Punhal");
+            arma_criarPunhal(personagem);
             break;
 
         case 2:
             printf("Parabens, voce escolheu o arco\n");
-            personagem->arma = 4;
-            strcpy(personagem->nomeArma, "Arco");
+            arma_criarArco(personagem);
             break;
 
         default:
@@ -123,14 +119,12 @@ void CriandoPersonagem(personagem_principal *personagem)
         {
         case 1:
             printf("Parabens, voce escolheu o fogo\n");
-            personagem->arma = 5;
-            strcpy(personagem->nomeArma, "Fogo");
+            arma_criarFogo(personagem);
             break;
 
         case 2:
             printf("Parabens, voce escolheu o gelo\n");
-            personagem->arma = 6;
-            strcpy(personagem->nomeArma, "Gelo");
+            arma_criarGelo(personagem);
             break;
 
         default:

@@ -23,7 +23,7 @@ void batalha_fsair(personagem_principal *personagem)
   }
   else
   {
-    printf("Voce derrotou seu adversario!\nDigite qualquer tecla para proseguir!\n");
+    printf("Voce derrotou seu adversario!Pressione enter para proseguir!\n");
     getchar();
   }
 }
@@ -60,6 +60,33 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
   int dado = RolarDado();
   printf("Esse foi o seu resultado: %d\n", dado);
   personagem->vida = personagem->vida - inimigoParaBatalha->atk;
+  if (personagem->vida <= 0)
+  {
+    batalha_fsair(personagem);
+    return 0;
+  }
+  batalha_menu(personagem, inimigoParaBatalha);
+}
+
+int batalha_personagemAtaca_Magia(personagem_principal *personagem, inimigo *inimigoParaBatalha)
+{
+  int dado = RolarDado();
+  inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->matk;
+  personagem->vida -= personagem->mana;
+  if (inimigoParaBatalha->vida <= 0)
+  {
+    batalha_fsair(personagem);
+    return 0;
+  }
+  batalha_menu(personagem, inimigoParaBatalha);
+}
+
+int batalha_inimigoAtaca_Magia(personagem_principal *personagem, inimigo *inimigoParaBatalha)
+{
+  int dado = RolarDado();
+  printf("Esse foi o seu resultado: %d\n", dado);
+  personagem->vida = personagem->vida - inimigoParaBatalha->matk;
+  inimigoParaBatalha->mana -= inimigoParaBatalha->matk;
   if (personagem->vida <= 0)
   {
     batalha_fsair(personagem);
@@ -281,9 +308,6 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
     //     break;
     default:
       tratamento(personagem, inimigoParaBatalha, 0);
-    }
-    if (inimigoParaBatalha->vida <= 0)
-    {
     }
   }
   else
