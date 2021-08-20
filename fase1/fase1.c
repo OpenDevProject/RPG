@@ -60,7 +60,6 @@ void Fase1(personagem_principal *personagem)
        srand(time(NULL));
        int escolha;
        inimigo inimigoPrincipal;
-       seguirEmFrenteOuPraticar(-1, &inimigoPrincipal, personagem);
        printf("[rei] Voce eh o mercenario contratado? \n");
        SLEEP;
        printf("[%s] Sim, estou aqui pela missao de execucao do Dragao Aither.\n", personagem->nome);
