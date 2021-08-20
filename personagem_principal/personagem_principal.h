@@ -26,8 +26,8 @@ typedef struct
     int classe;
     float atk;
     int matk;
-    int vida;
-    int vidaMax;
+    float vida;
+    float vidaMax;
     int def;
     int mana;
     int velocidade;

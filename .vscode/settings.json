@@ -8,6 +8,14 @@
         "item.h": "c",
         "fase1.h": "c",
         "unistd.h": "c",
-        "inimigo.h": "c"
+        "inimigo.h": "c",
+        "*.tcc": "c",
+        "limits": "c",
+        "numeric": "c",
+        "ranges": "c",
+        "streambuf": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c"
     }
 }

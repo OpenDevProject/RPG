@@ -11,17 +11,17 @@
  * 
  * @return int Retorna o valor do dado rolado
  */
-int RolarDado()
+int RolarDado(int seed)
 {
     int dado;
-    srand(time(NULL));
+    srand(seed);
     int numeroGerado = rand() % RANDOM_MAX;
     //printf("O seu resultado foi: %d", dado);
-    if (numeroGerado >= 0 && numeroGerado <= 5)
+    if (numeroGerado >= 0 && numeroGerado <= 3)
     {
         dado = 0;
     }
-    else if (numeroGerado >= 6 && numeroGerado <= 11)
+    else if (numeroGerado >= 4 && numeroGerado <= 11)
     {
         dado = 1;
     }
