@@ -40,7 +40,7 @@ void MenuPrincipal(personagem_principal *personagem)
     puts("[1] - Iniciar Jogo");
     puts("[2] - Creditos");
     puts("[3] - Sair");
-    printf("");
+    printf("Escolha: ");
 
     scanf("%d", &opcaoMenuPrincipal);
     clearBuffer();
