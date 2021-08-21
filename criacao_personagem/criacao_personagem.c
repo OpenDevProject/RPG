@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * @brief Pede para o usuário escolher uma classe
@@ -15,6 +16,7 @@ void escolherClasse(personagem_principal *personagem)
     printf("Escolha sua classe:\n[1] - Guerreiro\n[2] - Cacador\n[3] - Mago\n");
     printf("Escolha: ");
     scanf("%d", &personagem->classe);
+    system(CLEAR);
     clearBuffer();
 }
 
@@ -29,6 +31,7 @@ void CriandoPersonagem(personagem_principal *personagem)
     printf("Digite o nome do seu personagem: ");
 
     scanf("%s", personagem->nome);
+    system(CLEAR);
     //RemoverNovaLinhaDaString(temps);
     while (strlen(personagem->nome) > 10)
     {
@@ -36,6 +39,7 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Digite o nome do seu personagem: ");
 
         scanf("%s", personagem->nome);
+        system(CLEAR);;
     }
     escolherClasse(personagem);
 
@@ -59,6 +63,7 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Escolha sua arma:\n[1] - Espada\n[2] - Machado\n");
         puts("Opcao: ");
         scanf("%d", &arma);
+        system(CLEAR);
         clearBuffer();
 
         switch (arma)
@@ -85,6 +90,7 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Escolha sua arma:\n[1] - Punhal\n[2] - Arco\n");
         printf("escolha: ");
         scanf("%d", &arma);
+        system(CLEAR);
         clearBuffer();
 
         switch (arma)
@@ -113,6 +119,7 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Escolha sua arma:\n[1] - Fogo\n[2] - Gelo\n");
         printf("escolha: ");
         scanf("%d", &arma);
+        system(CLEAR);
         clearBuffer();
 
         switch (arma)

@@ -17,6 +17,7 @@ void seguirEmFrenteOuPraticar(int escolha, inimigo *inimigoPrincipal, personagem
               printf("(Voce tem duas opcoes, quer continuar sua jornada e adentrar a parte media ou praticar mais na parte externa?)\n");
               printf("[1] - Continuar para a parte media\n[2] - Treinar mais na parte externa\n");
               scanf("%d", &escolha);
+              system(CLEAR);
        }
        while (escolha == 2)
        {
@@ -40,12 +41,14 @@ void seguirEmFrenteOuPraticar(int escolha, inimigo *inimigoPrincipal, personagem
               printf("(Voce tem duas opcoes, quer continuar sua jornada e adentrar a parte media ou praticar mais na parte externa?)\n");
               printf("[1] - Continuar para a parte media\n[2] - Treinar mais na parte externa\n");
               scanf("%d", &escolha);
+              system(CLEAR);
               while (escolha != 1 && escolha != 2)
               {
                      puts("(Escolha invalida, tente novamente.)\n");
                      printf("(Voce tem duas opcoes, quer continuar sua jornada e adentrar a parte media ou praticar mais na parte externa?)\n");
                      printf("[1] - Continuar para a parte media\n[2] - Treinar mais na parte externa\n");
                      scanf("%d", &escolha);
+                     system(CLEAR);
               }
        }
 };
@@ -60,6 +63,7 @@ void Fase1(personagem_principal *personagem)
        srand(time(NULL));
        int escolha;
        inimigo inimigoPrincipal;
+       seguirEmFrenteOuPraticar(-1, &inimigoPrincipal, personagem);
        printf("[rei] Voce eh o mercenario contratado? \n");
        SLEEP;
        printf("[%s] Sim, estou aqui pela missao de execucao do Dragao Aither.\n", personagem->nome);
@@ -67,7 +71,6 @@ void Fase1(personagem_principal *personagem)
        printf("[rei] Ja matou algum monstro? \n");
        SLEEP;
        printf("[%s] Alguns pequenos\n", personagem->nome);
-       //     cringe();
        SLEEP;
        printf("[rei] E voce esta confiante em completar essa missao?\n");
        SLEEP;

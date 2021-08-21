@@ -13,7 +13,7 @@
  * 
  * @param personagem O endereço do personagem utilizado
  */
-void batalha_fsair(personagem_principal *personagem)
+void batalha_fsair(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
   // Duas formas de sair
   // A primeira é se a vida do personagem for menor que zero
@@ -28,7 +28,10 @@ void batalha_fsair(personagem_principal *personagem)
   // Nesse caso apenas irá imprimir uma mensagem de vitória e pedirá para pressionar enter
   else
   {
-    printf("Voce derrotou seu adversario!\nPressione enter para proseguir!\n");
+    personagem_aumentarExp(personagem, inimigoParaBatalha->quantidadeExp);
+    printf("Voce derrotou o %s!\n", inimigoParaBatalha->nome);
+    printf("Voce ganhou %.1f de xp.\n", inimigoParaBatalha->quantidadeExp);
+    printf("Pressione enter para proseguir!\n");
     getchar();
   }
 }
@@ -82,7 +85,7 @@ int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoPa
     printf("%s ataca o %s\n", personagem->nome, inimigoParaBatalha->nome);
     if (inimigoParaBatalha->vida <= 0)
     {
-      batalha_fsair(personagem);
+      batalha_fsair(personagem, inimigoParaBatalha);
       return 0;
     }
     break;
@@ -92,7 +95,7 @@ int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoPa
     printf("%s ataca o %s\n", personagem->nome, inimigoParaBatalha->nome);
     if (inimigoParaBatalha->vida <= 0)
     {
-      batalha_fsair(personagem);
+      batalha_fsair(personagem, inimigoParaBatalha);
       return 0;
     }
     break;
@@ -102,7 +105,7 @@ int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoPa
     printf("%s ataca o %s com um critico\n", personagem->nome, inimigoParaBatalha->nome);
     if (inimigoParaBatalha->vida <= 0)
     {
-      batalha_fsair(personagem);
+      batalha_fsair(personagem, inimigoParaBatalha);
       return 0;
     }
     break;
@@ -117,6 +120,8 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
 {
   int dado = RolarDado(time(NULL)+35);
 
+  int danoCausado = inimigoParaBatalha->atk;
+
   switch (dado)
   {
   case 0:
@@ -124,31 +129,31 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
     break;
 
   case 1:
-    personagem->vida = personagem->vida - inimigoParaBatalha->atk;
+    personagem->vida = personagem->vida - danoCausado;
     printf("%s ataca o %s\n", inimigoParaBatalha->nome, personagem->nome);
     if (personagem->vida <= 0)
     {
-      batalha_fsair(personagem);
+      batalha_fsair(personagem, inimigoParaBatalha);
       return 0;
     }
     break;
 
   case 2:
-    personagem->vida = personagem->vida - inimigoParaBatalha->atk;
+    personagem->vida = personagem->vida - danoCausado;
     printf("%s ataca o %s\n", inimigoParaBatalha->nome, personagem->nome);
     if (personagem->vida <= 0)
     {
-      batalha_fsair(personagem);
+      batalha_fsair(personagem, inimigoParaBatalha);
       return 0;
     }
     break;
 
   case 3:
-    personagem->vida = personagem->vida - (inimigoParaBatalha->atk * 1.5);
+    personagem->vida = personagem->vida - (danoCausado * 1.5);
     printf("%s ataca o %s com um critico\n", inimigoParaBatalha->nome, personagem->nome);
     if (personagem->vida <= 0)
     {
-      batalha_fsair(personagem);
+      batalha_fsair(personagem, inimigoParaBatalha);
       return 0;
     }
     break;
@@ -165,7 +170,7 @@ int batalha_personagemAtaca_Magia(personagem_principal *personagem, inimigo *ini
   personagem->vida -= personagem->mana;
   if (inimigoParaBatalha->vida <= 0)
   {
-    batalha_fsair(personagem);
+    batalha_fsair(personagem, inimigoParaBatalha);
     return 0;
   }
   batalha_menu(personagem, inimigoParaBatalha);
@@ -179,129 +184,13 @@ int batalha_inimigoAtaca_Magia(personagem_principal *personagem, inimigo *inimig
   inimigoParaBatalha->mana -= inimigoParaBatalha->matk;
   if (personagem->vida <= 0)
   {
-    batalha_fsair(personagem);
+    batalha_fsair(personagem, inimigoParaBatalha);
+    cringe();
     return 0;
   }
   batalha_menu(personagem, inimigoParaBatalha);
 }
 
-// void batalha_atacar_com_arma(personagem_principal *personagem, inimigo *inimigoParaBatalha, int inimigoEMaisRapido)
-// {
-//     if (personagem->arma == espada)
-//     {
-//         if (dado == 0)
-//         {
-//             printf("Voce tirou o dano minimo!\nSeu ataque com a espada foi fraco, seu inimigo se defendeu\n\nDano sera 0");
-//         }
-//         else if (dado == 1)
-//         {
-//             printf("Voce tirou o dano medio.\nSeu ataque com espada tirou dano de 25%% da vida de seu inimigo\n\n");
-//         }
-//         else if (dado == 2)
-//         {
-//             printf("Voce tirou dano alto.\nSeu ataque com espada tirou dano de 45%% da vida de seu inimigo.\n\n");
-//         }
-//         else if (dado == 3)
-//         {
-//             printf("Voce tirou dano i, parabens!!\n Seu ataque com espada tirou dano de 75%% da vida de seu inimigo.\n\n");
-//         }
-//     }
-//     else if (arma == machado)
-//     {
-//         if (dado == 0)
-//         {
-//             printf("Voce tirou o dano minimo!\nSeu ataque com a machado foi fraco, seu inimigo se defendeu\n\nDano sera 0");
-//         }
-//         else if (dado == 1)
-//         {
-//             printf("Voce tirou o dano medio.\nSeu ataque com machado tirou dano de 30%% da vida de seu inimigo\n\n");
-//         }
-//         else if (dado == 2)
-//         {
-//             printf("Voce tirou dano alto.\nSeu ataque com machado tirou dano de 50%% da vida de seu inimigo.\n\n");
-//         }
-//         else if (dado == 3)
-//         {
-//             printf("Voce tirou dano critico, parabens!!\n Seu ataque com machado tirou dano de 83%% da vida de seu inimigo.\n\n");
-//         }
-//     }
-//     else if (arma == arco)
-//     {
-//         if (dado == 0)
-//         {
-//             printf("Voce tirou o dano minimo!\nSeu ataque com a arco foi fraco, seu inimigo se defendeu\n\nDano sera 0");
-//         }
-//         else if (dado == 1)
-//         {
-//             printf("Voce tirou o dano medio.\nSeu ataque com arco tirou dano de 20%% da vida de seu inimigo\n\n");
-//         }
-//         else if (dado == 2)
-//         {
-//             printf("Voce tirou dano alto.\nSeu ataque com arco tirou dano de 35%% da vida de seu inimigo.\n\n");
-//         }
-//         else if (dado == 3)
-//         {
-//             printf("Voce tirou dano critico, parabens!!\n Seu ataque com arco tirou dano de 55%% da vida de seu inimigo.\n\n");
-//         }
-//     }
-//     else if (arma == punhal)
-//     {
-//         if (dado == 0)
-//         {
-//             printf("Voce tirou o dano minimo!\nSeu ataque com a punhal foi fraco, seu inimigo se defendeu\n\nDano será 0");
-//         }
-//         else if (dado == 1)
-//         {
-//             printf("Voce tirou o dano medio.\nSeu ataque com punhal tirou dano de 25%% da vida de seu inimigo\n\n");
-//         }
-//         else if (dado == 2)
-//         {
-//             printf("Voce tirou dano alto.\nSeu ataque com punhal tirou dano de 40%% da vida de seu inimigo.\n\n");
-//         }
-//         else if (dado == 3)
-//         {
-//             printf("Voce tirou dano critico, parabens!!\n Seu ataque com punhal tirou dano de 65%% da vida de seu inimigo.\n\n");
-//         }
-//         else if (arma == fogo)
-//         {
-//             if (dado == 0)
-//             {
-//                 printf("Voce tirou o dano minimo!\nSeu ataque com fogo foi fraco, seu inimigo se defendeu\n\nDano será 0");
-//             }
-//             else if (dado == 1)
-//             {
-//                 printf("Voce tirou o dano medio.\nSeu ataque com fogo tirou dano de 30%% da vida de seu inimigo\n\n");
-//             }
-//             else if (dado == 2)
-//             {
-//                 printf("Voce tirou dano alto.\nSeu ataque com fogo tirou dano de 50%% da vida de seu inimigo.\n\n");
-//             }
-//             else if (dado == 3)
-//             {
-//                 printf("Voce tirou dano critico, parabens!!\n Seu ataque com fogo tirou dano de 70%% da vida de seu inimigo.\n\n");
-//             }
-//         }
-//         else if (arma == gelo)
-//         {
-//             if (dado == 0)
-//             {
-//                 printf("Voce tirou o dano minimo!\nSeu ataque com a punhal foi fraco, seu inimigo se defendeu\n\nDano será 0");
-//             }
-//             else if (dado == 1)
-//             {
-//                 printf("Voce tirou o dano medio.\nSeu ataque com punhal tirou dano de 28%% da vida de seu inimigo\n\n");
-//             }
-//             else if (dado == 2)
-//             {
-//                 printf("Voce tirou dano alto.\nSeu ataque com punhal tirou dano de 43%% da vida de seu inimigo.\n\n");
-//             }
-//             else if (dado == 3)
-//             {
-//                 printf("Voce tirou dano critico, parabens!!\n Seu ataque com punhal tirou dano de 68%% da vida de seu inimigo.\n\n");
-//             }
-//         }
-//     }
-// }
 
 int batalha_inventario(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
@@ -351,7 +240,11 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 
   printf("VIDA DO %s: %.1f\n", personagem->nome, personagem->vida);
   printf("VIDA DO %s: %.1f\n", inimigoParaBatalha->nome, inimigoParaBatalha->vida);
+  puts("================");
 
+  printf("XP atual: %.0f pontos\n", personagem->exp);
+  printf("XP nescessario para subir de nivel: %.0f pontos\n", (personagem->expParaProxNivel - personagem->exp));
+  printf("\n");
   puts("================");
   puts("Digite uma opcao");
   puts("[1] - Atacar");
@@ -359,21 +252,8 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
   // puts("[3] - Sair");
   puts("================");
   scanf("%d", &opcao);
+  printf("Escolha: ");
   clearBuffer();
-  /*
-    Comparar speed para decidir quem joga primeiro.
-    if player.speed>monster.speed{
-      switch para decidir acao do player
-      checar se monster morreu e tomar decisao
-      acao do monster
-      checar se player morreu e tomar decisao
-    }else{
-      acao do monster
-      checar se player morreu e tomar decisao
-      switch para decidir acao do player
-      checar se monster morreu e tomar decisao
-    }
-    */
   if (personagem->velocidade > inimigoParaBatalha->velocidade)
   {
     switch (opcao)
@@ -388,7 +268,7 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
       break;
     case 2:
       utilizouAlgo = batalha_inventario(personagem, inimigoParaBatalha);
-      if (utilizouAlgo)
+      if (!utilizouAlgo)
       {
         batalha_inimigoAtaca(personagem, inimigoParaBatalha);
       }
@@ -418,7 +298,7 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
       break;
     case 2:
       utilizouAlgo = batalha_inventario(personagem, inimigoParaBatalha);
-      if (utilizouAlgo)
+      if (!utilizouAlgo)
       {
         batalha_inimigoAtaca(personagem, inimigoParaBatalha);
       }

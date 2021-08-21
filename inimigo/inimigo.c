@@ -11,6 +11,7 @@ void inimigo_criarGlobin(inimigo *goblin)
     goblin->velocidade = 5;
     goblin->vida = 4;
     goblin->vidaMax = 4;
+    goblin->quantidadeExp = 1;
 }
 
 void inimigo_criarSlime(inimigo *slime)
@@ -21,66 +22,72 @@ void inimigo_criarSlime(inimigo *slime)
     slime->def = 2;
     slime->mana = 0;
     slime->velocidade = 7;
-    slime->vida = 4;
-    slime->vidaMax = 4;
+    slime->vida = 8;
+    slime->vidaMax = 8;
+    slime->quantidadeExp = 1;
 }
 
 void inimigo_criarOrc(inimigo *orc)
 {
     strcpy(orc->nome, "Orc");
-    orc->atk = 1;
+    orc->atk = 12;
     orc->matk = 0;
-    orc->def = 2;
+    orc->def = 10;
     orc->mana = 0;
-    orc->velocidade = 5;
-    orc->vida = 4;
-    orc->vidaMax = 4;
+    orc->velocidade = 7;
+    orc->vida = 16;
+    orc->vidaMax = 16;
+    orc->quantidadeExp = 1;
 }
 
 void inimigo_criarBruxa(inimigo *bruxa)
 {
     strcpy(bruxa->nome, "Bruxa");
-    bruxa->atk = 1;
-    bruxa->matk = 0;
+    bruxa->atk = 6;
+    bruxa->matk = 16;
     bruxa->def = 2;
-    bruxa->mana = 0;
-    bruxa->velocidade = 7;
-    bruxa->vida = 4;
-    bruxa->vidaMax = 4;
+    bruxa->mana = 15;
+    bruxa->velocidade = 11;
+    bruxa->vida = 12;
+    bruxa->vidaMax = 12;
+    bruxa->quantidadeExp = 1;
 }
 
 void inimigo_criarElfo(inimigo *elfo)
 {
     strcpy(elfo->nome, "Elfo");
-    elfo->atk = 1;
-    elfo->matk = 0;
-    elfo->def = 2;
-    elfo->mana = 0;
-    elfo->velocidade = 7;
-    elfo->vida = 4;
-    elfo->vidaMax = 4;
+    elfo->atk = 8;
+    elfo->matk = 10;
+    elfo->def = 9;
+    elfo->mana = 10;
+    elfo->velocidade = 12;
+    elfo->vida = 9;
+    elfo->vidaMax = 9;
+    elfo->quantidadeExp = 1;
 }
 
 void inimigo_criarGrifo(inimigo *grifo)
 {
     strcpy(grifo->nome, "Grifo");
-    grifo->atk = 1;
-    grifo->matk = 0;
-    grifo->def = 2;
-    grifo->mana = 0;
-    grifo->velocidade = 7;
-    grifo->vida = 4;
-    grifo->vidaMax = 4;
+    grifo->atk = 15;
+    grifo->matk = 5;
+    grifo->def = 12;
+    grifo->mana = 5;
+    grifo->velocidade = 16;
+    grifo->vida = 14;
+    grifo->vidaMax = 14;
+    grifo->quantidadeExp = 1;
 }
 
 void inimigo_criarRadamanthys(inimigo *radamanthys)
 {
     strcpy(radamanthys->nome, "Radamanthys");
-    radamanthys->atk = 1;
-    radamanthys->matk = 0;
-    radamanthys->def = 2;
-    radamanthys->mana = 0;
-    radamanthys->velocidade = 7;
-    radamanthys->vida = 4;
-    radamanthys->vidaMax = 4;
+    radamanthys->atk = 15;
+    radamanthys->matk = 10;
+    radamanthys->def = 13;
+    radamanthys->mana = 10;
+    radamanthys->velocidade = 14;
+    radamanthys->vida = 15;
+    radamanthys->vidaMax = 15;
+    radamanthys->quantidadeExp = 3;
 }

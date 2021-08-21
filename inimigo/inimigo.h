@@ -10,6 +10,7 @@ typedef struct inimigo {
     int def;
     int mana;
     int velocidade;
+    float quantidadeExp;
 } inimigo;
 
 void inimigo_criarGlobin(inimigo *goblin);

@@ -1,6 +1,7 @@
 #include "personagem_principal.h"
 
 #include <string.h>
+#include <stdio.h>
 
 /**
  * @brief Cria um novo guerreiro e guarda eles no personagem
@@ -11,6 +12,9 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem)
 {
     personagem->atk = 12;
     personagem->matk = 5;
+    personagem->level = 1;
+    personagem->exp = 0;
+    personagem->expParaProxNivel = 10;
     personagem->vida = 10;
     personagem->vidaMax = personagem->vida;
     personagem->def = 20;
@@ -26,10 +30,13 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem)
  */
 void personagem_principal_criarCacador(personagem_principal *personagem)
 {
-    personagem->atk = 20;
+    personagem->atk = 16;
     personagem->matk = 5;
+    personagem->level = 1;
+    personagem->exp = 0;
+    personagem->expParaProxNivel = 10;
     personagem->vida = 10;
-    personagem->vidaMax = personagem->vida;
+    personagem->vidaMax = 10;
     personagem->def = 5;
     personagem->mana = 5;
     personagem->velocidade = 8;
@@ -46,7 +53,10 @@ void personagem_principal_criarMago(personagem_principal *personagem)
     personagem->atk = 5;
     personagem->matk = 20;
     personagem->vida = 10;
-    personagem->vidaMax = personagem->vida;
+    personagem->level = 1;
+    personagem->exp = 0;
+    personagem->expParaProxNivel = 10;
+    personagem->vidaMax = 10;
     personagem->def = 5;
     personagem->mana = 20;
     personagem->velocidade = 6;
@@ -66,11 +76,72 @@ void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *perso
         personagem->vida = personagem->vidaMax;
 }
 
+void personagem_aumentarStatus(personagem_principal *personagem)
+{
+    int pontosDisponiveis = 2;
+    personagem->level = personagem->level + 1;
+    personagem->exp = 0;
+    personagem->expParaProxNivel = personagem->expParaProxNivel * 2;
+
+    while(pontosDisponiveis > 0)
+    {
+        int opcaoEscolhida;
+        do
+        {
+            printf("Digite a opcao dos status para aumentar\n");
+            printf("[1] atk\n");
+            printf("[2] matk\n");
+            printf("[3] vida\n");
+            printf("[4] defesa\n");
+            printf("[5] mana\n");
+            printf("[6] velocidade\n");
+            printf("Status para aumentar: ");
+            scanf("%d", &opcaoEscolhida);
+
+            switch (opcaoEscolhida)
+            {
+            case 1:
+                personagem->atk = personagem->atk + 1;
+                pontosDisponiveis--;
+                break;
+            case 2:
+                personagem->matk = personagem->matk + 1;
+                
+                break;
+            case 3:
+                personagem->vida = personagem->vida + 1;
+                pontosDisponiveis--;
+                break;
+            case 4:
+                personagem->def = personagem->def + 1;
+                pontosDisponiveis--;
+                break;
+            case 5:
+                personagem->mana = personagem->mana + 1;
+                pontosDisponiveis--;
+            case 6:
+                personagem->velocidade = personagem->velocidade + 1;
+                pontosDisponiveis--;
+                break;
+            default:
+                break;
+            }
+        } while (opcaoEscolhida < 1 || opcaoEscolhida > 6);
+    }
+}
+
+void personagem_aumentarExp(personagem_principal *personagem, float exp)
+{
+    personagem->exp = personagem->exp + 1;
+    if (personagem->exp >= personagem->expParaProxNivel)
+        personagem_aumentarStatus(personagem);
+}
+
 void arma_criarEspada(personagem_principal *personagem)
 {
     personagem->armaSelecionada.code = 1;
     personagem->armaSelecionada.dano = 1 * (personagem->atk);
-    strcpy(personagem->armaSelecionada.nomeArma, "Espada"); 
+    strcpy(personagem->armaSelecionada.nomeArma, "Espada");
 }
 
 void arma_criarMachado(personagem_principal *personagem)

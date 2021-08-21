@@ -31,6 +31,9 @@ typedef struct
     int def;
     int mana;
     int velocidade;
+    int level;
+    float exp;
+    float expParaProxNivel;
     arma armaSelecionada;
     item inventario[MAX_INVENTARIO_SIZE];
 } personagem_principal;
@@ -39,6 +42,7 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem);
 void personagem_principal_criarCacador(personagem_principal *personagem);
 void personagem_principal_criarMago(personagem_principal *personagem);
 void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *personagem);
+void personagem_aumentarExp(personagem_principal *personagem, float exp);
 
 #define ITEM_VAZIO     \
     {                  \

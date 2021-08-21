@@ -43,6 +43,7 @@ void MenuPrincipal(personagem_principal *personagem)
     printf("Escolha: ");
 
     scanf("%d", &opcaoMenuPrincipal);
+    system(CLEAR);
     clearBuffer();
 
     switch (opcaoMenuPrincipal)
