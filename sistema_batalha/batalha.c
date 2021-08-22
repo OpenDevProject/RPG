@@ -120,7 +120,15 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
 {
   int dado = RolarDado(time(NULL)+35);
 
-  int danoCausado = inimigoParaBatalha->atk;
+  int danoCausado = inimigoParaBatalha->atk - personagem->def;
+
+  personagem_diminuirDef(personagem, inimigoParaBatalha->atk);
+
+  if (danoCausado <= 0)
+  {
+    printf("Sua armadura te protegeu do dano\n");
+    return 0;
+  }
 
   switch (dado)
   {
@@ -237,13 +245,13 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
   int opcao, utilizouAlgo;
 
   puts("================");
-
   printf("VIDA DO %s: %.1f\n", personagem->nome, personagem->vida);
   printf("VIDA DO %s: %.1f\n", inimigoParaBatalha->nome, inimigoParaBatalha->vida);
   puts("================");
-
-  printf("XP atual: %.0f pontos\n", personagem->exp);
-  printf("XP nescessario para subir de nivel: %.0f pontos\n", (personagem->expParaProxNivel - personagem->exp));
+  printf("\n");
+  printf("XP atual: %.1f pontos\n", personagem->exp);
+  printf("XP nescessario para subir de nivel: %.1f pontos\n\n", (personagem->expParaProxNivel - personagem->exp));
+  printf("Armadura atual: %d\n", personagem->def);
   printf("\n");
   puts("================");
   puts("Digite uma opcao");

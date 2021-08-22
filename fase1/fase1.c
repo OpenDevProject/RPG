@@ -63,7 +63,6 @@ void Fase1(personagem_principal *personagem)
        srand(time(NULL));
        int escolha;
        inimigo inimigoPrincipal;
-       seguirEmFrenteOuPraticar(-1, &inimigoPrincipal, personagem);
        printf("[rei] Voce eh o mercenario contratado? \n");
        SLEEP;
        printf("[%s] Sim, estou aqui pela missao de execucao do Dragao Aither.\n", personagem->nome);
@@ -118,7 +117,6 @@ void Fase1(personagem_principal *personagem)
        }
        else if (personagem->armaSelecionada.code == 6)
        {
-              ;
               item gelo = ITEM_GELO;
               gelo.quant = 1;
               item_AdicionarItemAoInventario(gelo, personagem->inventario);
@@ -126,8 +124,12 @@ void Fase1(personagem_principal *personagem)
 
        item pocao = ITEM_POCAO;
        pocao.quant = 10;
+       item recuperarArmadura = ITEM_KIT_DE_ARMADURA;
+       recuperarArmadura.quant = 5;
 
        item_AdicionarItemAoInventario(pocao, personagem->inventario);
+       item_AdicionarItemAoInventario(recuperarArmadura, personagem->inventario);
+       
        SLEEP;
        printf("(Apos receber a(o) %s e as pocoes voce parte \n"
               "para a Floresta Mydra para enfrentar Radamanthys.)\n",

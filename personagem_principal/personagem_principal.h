@@ -29,6 +29,7 @@ typedef struct
     float vida;
     float vidaMax;
     int def;
+    int defMax;
     int mana;
     int velocidade;
     int level;
@@ -42,7 +43,9 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem);
 void personagem_principal_criarCacador(personagem_principal *personagem);
 void personagem_principal_criarMago(personagem_principal *personagem);
 void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *personagem);
+void personagem_recuperarDef(personagem_principal *personagem, int quantidadeParaRecuperar);
 void personagem_aumentarExp(personagem_principal *personagem, float exp);
+void personagem_diminuirDef(personagem_principal *personagem, int quantidadeDeDano);
 
 #define ITEM_VAZIO     \
     {                  \
@@ -51,6 +54,10 @@ void personagem_aumentarExp(personagem_principal *personagem, float exp);
 #define ITEM_POCAO            \
     {                         \
         "Pocao de vida", 0, 1 \
+    }
+#define ITEM_KIT_DE_ARMADURA    \
+    {                           \
+        "Kit de Armadura", 0, 1 \
     }
 #define ITEM_ESPADA    \
     {                  \

@@ -47,10 +47,18 @@ void item_UsarItemDoInventario(item itemParaUsar, personagem_principal *personag
         if(strcmp(inventario[i].nome, itemParaUsar.nome) == 0 && strcmp(itemParaUsar.nome, "Pocao de vida") == 0)
         {   
             inventario[i].quant--;
-            personagem_recuperarVida(3, personagem);
+            personagem_recuperarVida(20, personagem);
             if(inventario[i].quant <= 0)
                 item_RemoverItemDoInventario(itemParaUsar, inventario);
             
+            break;
+        }
+        if(strcmp(inventario[i].nome, itemParaUsar.nome) == 0 && strcmp(itemParaUsar.nome, "Kit de Armadura") == 0)
+        {   
+            inventario[i].quant--;
+            personagem_recuperarDef(6, personagem);
+            if(inventario[i].quant <= 0)
+                item_RemoverItemDoInventario(itemParaUsar, inventario);
             break;
         }
     }

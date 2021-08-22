@@ -1,4 +1,5 @@
 #include "personagem_principal.h"
+#include "../utils/utils.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -10,16 +11,17 @@
  */
 void personagem_principal_criarGuerreiro(personagem_principal *personagem)
 {
-    personagem->atk = 12;
-    personagem->matk = 5;
+    personagem->atk = 108;
+    personagem->matk = 45;
     personagem->level = 1;
     personagem->exp = 0;
     personagem->expParaProxNivel = 10;
-    personagem->vida = 10;
+    personagem->vida = 89;
     personagem->vidaMax = personagem->vida;
-    personagem->def = 20;
-    personagem->mana = 5;
-    personagem->velocidade = 4;
+    personagem->def = 177;
+    personagem->defMax = personagem->def;
+    personagem->mana = 45;
+    personagem->velocidade = 36;
     personagem->armaSelecionada.code = 1;
 }
 
@@ -30,16 +32,17 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem)
  */
 void personagem_principal_criarCacador(personagem_principal *personagem)
 {
-    personagem->atk = 16;
-    personagem->matk = 5;
+    personagem->atk = 178;
+    personagem->matk = 46;
     personagem->level = 1;
     personagem->exp = 0;
     personagem->expParaProxNivel = 10;
-    personagem->vida = 10;
+    personagem->vida = 89;
     personagem->vidaMax = 10;
-    personagem->def = 5;
-    personagem->mana = 5;
-    personagem->velocidade = 8;
+    personagem->def = 62;
+    personagem->defMax = personagem->def;
+    personagem->mana = 46;
+    personagem->velocidade = 79;
     personagem->armaSelecionada.code = 3;
 }
 
@@ -50,16 +53,17 @@ void personagem_principal_criarCacador(personagem_principal *personagem)
  */
 void personagem_principal_criarMago(personagem_principal *personagem)
 {
-    personagem->atk = 5;
-    personagem->matk = 20;
-    personagem->vida = 10;
+    personagem->atk = 24;
+    personagem->matk = 151;
+    personagem->vida = 89;
     personagem->level = 1;
     personagem->exp = 0;
     personagem->expParaProxNivel = 10;
     personagem->vidaMax = 10;
-    personagem->def = 5;
-    personagem->mana = 20;
-    personagem->velocidade = 6;
+    personagem->def = 35;
+    personagem->defMax = personagem->def;
+    personagem->mana = 151;
+    personagem->velocidade = 50;
     personagem->armaSelecionada.code = 5;
 }
 
@@ -83,7 +87,7 @@ void personagem_aumentarStatus(personagem_principal *personagem)
     personagem->exp = 0;
     personagem->expParaProxNivel = personagem->expParaProxNivel * 2;
 
-    while(pontosDisponiveis > 0)
+    while (pontosDisponiveis > 0)
     {
         int opcaoEscolhida;
         do
@@ -101,31 +105,35 @@ void personagem_aumentarStatus(personagem_principal *personagem)
             switch (opcaoEscolhida)
             {
             case 1:
-                personagem->atk = personagem->atk + 1;
+                personagem->atk = personagem->atk + 20;
                 pontosDisponiveis--;
                 break;
             case 2:
-                personagem->matk = personagem->matk + 1;
-                
+                personagem->matk = personagem->matk + 20;
+
                 break;
             case 3:
-                personagem->vida = personagem->vida + 1;
+                personagem->vida = personagem->vida + 20;
+                personagem->vida = personagem->vidaMax + 20;
                 pontosDisponiveis--;
                 break;
             case 4:
-                personagem->def = personagem->def + 1;
+                personagem->def = personagem->def + 20;
+                personagem->defMax = personagem->defMax + 20;
                 pontosDisponiveis--;
                 break;
             case 5:
-                personagem->mana = personagem->mana + 1;
+                personagem->mana = personagem->mana + 20;
                 pontosDisponiveis--;
             case 6:
-                personagem->velocidade = personagem->velocidade + 1;
+                personagem->velocidade = personagem->velocidade + 20;
                 pontosDisponiveis--;
                 break;
             default:
+                TratamentoDeErro();
                 break;
             }
+            system(CLEAR);
         } while (opcaoEscolhida < 1 || opcaoEscolhida > 6);
     }
 }
@@ -135,6 +143,22 @@ void personagem_aumentarExp(personagem_principal *personagem, float exp)
     personagem->exp = personagem->exp + 1;
     if (personagem->exp >= personagem->expParaProxNivel)
         personagem_aumentarStatus(personagem);
+}
+
+void personagem_recuperarDef(personagem_principal *personagem, int quantidadeParaRecuperar)
+{
+    personagem->def = personagem->def + quantidadeParaRecuperar;
+    if (personagem->def > personagem->defMax)
+    {
+        personagem->def = personagem->defMax;
+    }
+}
+
+void personagem_diminuirDef(personagem_principal *personagem, int quantidadeDeDano)
+{
+    personagem->def = personagem->def - quantidadeDeDano;
+    if (personagem->def < 0)
+        personagem->def = 0;
 }
 
 void arma_criarEspada(personagem_principal *personagem)
