@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * @brief Cria um novo guerreiro e guarda eles no personagem
