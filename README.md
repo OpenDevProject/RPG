@@ -40,9 +40,7 @@ to compile the program and ```.\RPG``` to execute.
 
 ### Windows EN
 
-Make sure Mingw-w64 is installed is installed correctly and run the command
-```mingw32-make```  
-After that the ```RPG.exe``` file will be created, you can run this file using the ```.\RPG.exe``` command.
+For Windows there is an executable binary in the project's bin folder, just double click it to start the game.
 
 ## Introdução
 
@@ -64,9 +62,7 @@ para compilar o programa e ```.\RPG``` para executar.
 
 ### Windows
 
-Certifique-se que o Mingw-w64 esteja instalado está instalado corretamente e execute o comando  
-```mingw32-make```  
-Após isso será criado o arquivo ```RPG.exe```, você pode executar esse arquivo utilizando o comando ```.\RPG.exe```.
+Para o Windows existe um binário executável na pasta bin do projeto, apenas use o duplo clique para iniciar o jogo.
 
 ## Cooperadores / Cooperators
 
