@@ -261,6 +261,7 @@ void Fase1(personagem_principal *personagem)
        printf("[1] - Continuar para a parte media\n[2] - Treinar mais na parte externa\n");
        scanf("%d", &escolha);
        seguirEmFrenteOuPraticar(escolha, &inimigoPrincipal, personagem);
+       SLEEP;
        // Inicio da parte media
        printf("(Espero que voce esteja pronto, a partir da parte media mais monstros sao adicionados)\n");
        SLEEP;
@@ -277,6 +278,7 @@ void Fase1(personagem_principal *personagem)
        SLEEP;
        printf("(De acordo com os livros que voce leu em sua infancia, voce chega a conclusao que esta de frente para um Orc.)\n");
        SLEEP;
+       printf("");
 
        // só um aviso depois de terminar o jogo
        printf("ESSE JOGO AINDA ESTA EM DESENVOLVIMENTO!\n\n");

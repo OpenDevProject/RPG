@@ -34,8 +34,6 @@ void MenuPrincipal(personagem_principal *personagem)
 
   do
   {
-    // Inicializa o inventario
-    item_CriarArrayItem(personagem->inventario);
     puts("MENU PRINCIPAL");
     puts("[1] - Iniciar Jogo");
     puts("[2] - Creditos");

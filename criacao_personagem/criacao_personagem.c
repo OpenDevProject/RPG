@@ -141,4 +141,6 @@ void CriandoPersonagem(personagem_principal *personagem)
 
         break;
     }
+
+    item_CriarArrayItem(personagem->inventario);
 }
