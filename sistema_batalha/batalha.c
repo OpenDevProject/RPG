@@ -28,10 +28,11 @@ void batalha_fsair(personagem_principal *personagem, inimigo *inimigoParaBatalha
   // Nesse caso apenas irá imprimir uma mensagem de vitória e pedirá para pressionar enter
   else
   {
-    personagem_aumentarExp(personagem, inimigoParaBatalha->quantidadeExp);
     printf("Voce derrotou o %s!\n", inimigoParaBatalha->nome);
     printf("Voce ganhou %.1f de xp.\n", inimigoParaBatalha->quantidadeExp);
+    personagem_aumentarExp(personagem, inimigoParaBatalha->quantidadeExp);
     printf("Pressione enter para proseguir!\n");
+    clearBuffer();
     getchar();
   }
 }
@@ -259,9 +260,10 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
   puts("[2] - Inventario");
   // puts("[3] - Sair");
   puts("================");
-  scanf("%d", &opcao);
-  printf("Escolha: ");
   clearBuffer();
+  printf("Escolha: ");
+  scanf("%d", &opcao);
+  system(CLEAR);
   if (personagem->velocidade > inimigoParaBatalha->velocidade)
   {
     switch (opcao)

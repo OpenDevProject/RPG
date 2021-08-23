@@ -28,19 +28,6 @@ void escolherClasse(personagem_principal *personagem)
 void CriandoPersonagem(personagem_principal *personagem)
 {
     int arma;
-    printf("Digite o nome do seu personagem: ");
-
-    scanf("%s", personagem->nome);
-    system(CLEAR);
-    //RemoverNovaLinhaDaString(temps);
-    while (strlen(personagem->nome) > 10)
-    {
-        printf("\nO nome do personagem so pode ter ate 10 caracteres.\n");
-        printf("Digite o nome do seu personagem: ");
-
-        scanf("%s", personagem->nome);
-        system(CLEAR);;
-    }
     escolherClasse(personagem);
 
     while (personagem->classe != 1 && personagem->classe != 2 && personagem->classe != 3)
@@ -69,12 +56,12 @@ void CriandoPersonagem(personagem_principal *personagem)
         switch (arma)
         {
         case 1:
-            printf("Parabens, voce escolheu a espada\n");
+            printf("Parabens, voce escolheu a espada\n\n");
             arma_criarEspada(personagem);
             break;
 
         case 2:
-            printf("Parabens, voce escolheu o machado\n");
+            printf("Parabens, voce escolheu o machado\n\n");
             arma_criarMachado(personagem);
             break;
         default:
@@ -96,12 +83,12 @@ void CriandoPersonagem(personagem_principal *personagem)
         switch (arma)
         {
         case 1:
-            printf("Parabens, voce escolheu o punhal\n");
+            printf("Parabens, voce escolheu o punhal\n\n");
             arma_criarPunhal(personagem);
             break;
 
         case 2:
-            printf("Parabens, voce escolheu o arco\n");
+            printf("Parabens, voce escolheu o arco\n\n");
             arma_criarArco(personagem);
             break;
 
@@ -125,12 +112,12 @@ void CriandoPersonagem(personagem_principal *personagem)
         switch (arma)
         {
         case 1:
-            printf("Parabens, voce escolheu o fogo\n");
+            printf("Parabens, voce escolheu o fogo\n\n");
             arma_criarFogo(personagem);
             break;
 
         case 2:
-            printf("Parabens, voce escolheu o gelo\n");
+            printf("Parabens, voce escolheu o gelo\n\n");
             arma_criarGelo(personagem);
             break;
 

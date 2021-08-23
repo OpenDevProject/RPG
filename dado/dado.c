@@ -15,22 +15,26 @@ int RolarDado(int seed)
 {
     int dado;
     srand(seed);
-    int numeroGerado = rand() % RANDOM_MAX;
-    //printf("O seu resultado foi: %d", dado);
-    if (numeroGerado >= 0 && numeroGerado <= 3)
+    dado = rand() % RANDOM_MAX;
+    printf("O seu resultado foi: %d\n", dado);
+    if (dado >= 0 && dado <= 3)
     {
+        printf("Resultado minimo!\n");
         dado = 0;
     }
-    else if (numeroGerado >= 4 && numeroGerado <= 11)
+    else if (dado >= 4 && dado <= 11)
     {
+        printf("Resultado normal!\n");
         dado = 1;
     }
-    else if (numeroGerado >= 12 && numeroGerado <= 17)
+    else if (dado >= 12 && dado <= 17)
     {
+        printf("Resultado bom!\n");
         dado = 2;
     }
-    else if (numeroGerado >= 18 && numeroGerado <= 20)
+    else if (dado >= 18 && dado <= 20)
     {
+        printf("Resultado critic!\n");
         dado = 3;
     }
     return dado;

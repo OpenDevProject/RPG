@@ -88,8 +88,11 @@ void personagem_aumentarStatus(personagem_principal *personagem)
     personagem->exp = 0;
     personagem->expParaProxNivel = personagem->expParaProxNivel * 2;
 
+    printf("Parabens, voce aumentou de nivel\n");
+    printf("Escolha onde investir os pontos disponiveis!\n");
     while (pontosDisponiveis > 0)
     {
+        printf("Quandidade de pontos disponiveis: %d\n", pontosDisponiveis);
         int opcaoEscolhida;
         do
         {
@@ -141,7 +144,7 @@ void personagem_aumentarStatus(personagem_principal *personagem)
 
 void personagem_aumentarExp(personagem_principal *personagem, float exp)
 {
-    personagem->exp = personagem->exp + 1;
+    personagem->exp = personagem->exp + exp;
     if (personagem->exp >= personagem->expParaProxNivel)
         personagem_aumentarStatus(personagem);
 }
