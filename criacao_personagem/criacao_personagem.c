@@ -101,7 +101,7 @@ void CriandoPersonagem(personagem_principal *personagem)
     case 3:
         personagem_principal_criarMago(personagem);
 
-        printf("Parabéns, voce escolheu Mago\n");
+        printf("Parabens, voce escolheu Mago\n");
 
         printf("Escolha sua arma:\n[1] - Fogo\n[2] - Gelo\n");
         printf("escolha: ");

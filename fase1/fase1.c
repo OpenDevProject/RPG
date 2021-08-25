@@ -52,7 +52,7 @@ void seguirEmFrenteOuPraticar(int escolha, inimigo *inimigoPrincipal, personagem
                      system(CLEAR);
               }
        }
-};
+}
 
 /**
  * @brief Codigo que execute a fase 1
@@ -71,6 +71,7 @@ void Fase1(personagem_principal *personagem)
        printf("[rei] Ja matou algum monstro? \n\n");
        SLEEP;
        printf("[%s] Alguns pequenos\n\n", personagem->nome);
+       cringe();
        SLEEP;
        printf("[rei] E voce esta confiante em completar essa missao?\n\n");
        SLEEP;
@@ -83,9 +84,15 @@ void Fase1(personagem_principal *personagem)
        SLEEP;
        printf("[rei] Nao enviaremos jovens inexperientes para sua morte!\n\n");
        SLEEP;
-       printf("[rei] Leve essa %s e algumas pocoes para sua aventura na Floresta Mydra,\n", personagem->armaSelecionada.nomeArma);
+              if(personagem->classe == 3)
+              { 
+              printf("[rei] Leve algumas pocoes para sua aventura na Floresta Mydra\n");
+              }
+              else
+              { 
+              printf("Leve essa esta(e) %s e algumas pocoes para sua aventura na Floresta Mydra", personagem->armaSelecionada.nomeArma);
+              }
        printf("na qual voce executara o primeiro Wyvern, Radamanthys.\n\n");
-
        if (personagem->armaSelecionada.code == 1)
        {
               item espada = ITEM_ESPADA;

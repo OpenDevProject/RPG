@@ -31,7 +31,7 @@ void batalha_fsair(personagem_principal *personagem, inimigo *inimigoParaBatalha
     printf("Voce derrotou o %s!\n", inimigoParaBatalha->nome);
     printf("Voce ganhou %.1f de xp.\n", inimigoParaBatalha->quantidadeExp);
     personagem_aumentarExp(personagem, inimigoParaBatalha->quantidadeExp);
-    printf("Pressione enter para proseguir!\n");
+    printf("Pressione enter para proseguir!\n\n");
     clearBuffer();
     getchar();
   }
@@ -73,17 +73,17 @@ void tratamento(personagem_principal *personagem, inimigo *inimigoParaBatalha, i
  */
 int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
-  int dado = RolarDado(time(NULL)+12);
+  int dado = RolarDado(time(NULL) + 12);
 
   switch (dado)
   {
   case 0:
-    printf("O %s se esquivou.\n", inimigoParaBatalha->nome);
+    printf("O %s se esquivou.\n\n", inimigoParaBatalha->nome);
     break;
 
   case 1:
+    printf("%s ataca o %s - dano %f\n", personagem->nome, inimigoParaBatalha->nome, personagem->armaSelecionada.dano);
     inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->armaSelecionada.dano;
-    printf("%s ataca o %s\n", personagem->nome, inimigoParaBatalha->nome);
     if (inimigoParaBatalha->vida <= 0)
     {
       batalha_fsair(personagem, inimigoParaBatalha);
@@ -92,8 +92,8 @@ int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoPa
     break;
 
   case 2:
+    printf("%s ataca o %s - dano %f\n", personagem->nome, inimigoParaBatalha->nome, personagem->armaSelecionada.dano);
     inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->armaSelecionada.dano;
-    printf("%s ataca o %s\n", personagem->nome, inimigoParaBatalha->nome);
     if (inimigoParaBatalha->vida <= 0)
     {
       batalha_fsair(personagem, inimigoParaBatalha);
@@ -102,8 +102,8 @@ int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoPa
     break;
 
   case 3:
+    printf("%s ataca o %s com um critico - dano %f\n", personagem->nome, inimigoParaBatalha->nome, personagem->armaSelecionada.dano);
     inimigoParaBatalha->vida = inimigoParaBatalha->vida - (personagem->armaSelecionada.dano * 1.5);
-    printf("%s ataca o %s com um critico\n", personagem->nome, inimigoParaBatalha->nome);
     if (inimigoParaBatalha->vida <= 0)
     {
       batalha_fsair(personagem, inimigoParaBatalha);
@@ -119,7 +119,7 @@ int batalha_personagemAtaca(personagem_principal *personagem, inimigo *inimigoPa
 
 int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
-  int dado = RolarDado(time(NULL)+35);
+  int dado = RolarDado(time(NULL) + 35);
 
   int danoCausado = inimigoParaBatalha->atk - personagem->def;
 
@@ -138,8 +138,8 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
     break;
 
   case 1:
+    printf("%s ataca o %s - dano %f\n", inimigoParaBatalha->nome, personagem->nome, personagem->armaSelecionada.dano);
     personagem->vida = personagem->vida - danoCausado;
-    printf("%s ataca o %s\n", inimigoParaBatalha->nome, personagem->nome);
     if (personagem->vida <= 0)
     {
       batalha_fsair(personagem, inimigoParaBatalha);
@@ -148,8 +148,8 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
     break;
 
   case 2:
+    printf("%s ataca o %s - dano %f\n", inimigoParaBatalha->nome, personagem->nome, personagem->armaSelecionada.dano);
     personagem->vida = personagem->vida - danoCausado;
-    printf("%s ataca o %s\n", inimigoParaBatalha->nome, personagem->nome);
     if (personagem->vida <= 0)
     {
       batalha_fsair(personagem, inimigoParaBatalha);
@@ -158,8 +158,8 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
     break;
 
   case 3:
+    printf("%s ataca o %s com um critico - dano %f\n", inimigoParaBatalha->nome, personagem->nome, personagem->armaSelecionada.dano);
     personagem->vida = personagem->vida - (danoCausado * 1.5);
-    printf("%s ataca o %s com um critico\n", inimigoParaBatalha->nome, personagem->nome);
     if (personagem->vida <= 0)
     {
       batalha_fsair(personagem, inimigoParaBatalha);
@@ -172,34 +172,76 @@ int batalha_inimigoAtaca(personagem_principal *personagem, inimigo *inimigoParaB
   }
 }
 
-int batalha_personagemAtaca_Magia(personagem_principal *personagem, inimigo *inimigoParaBatalha)
-{
-  int dado = RolarDado();
-  inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->matk;
-  personagem->vida -= personagem->mana;
-  if (inimigoParaBatalha->vida <= 0)
-  {
-    batalha_fsair(personagem, inimigoParaBatalha);
-    return 0;
-  }
-  batalha_menu(personagem, inimigoParaBatalha);
-}
+// int batalha_personagemAtaca_Magia(personagem_principal *personagem, inimigo *inimigoParaBatalha)
+// {
+//   int dado = RolarDado(time(NULL) + 12);
 
-int batalha_inimigoAtaca_Magia(personagem_principal *personagem, inimigo *inimigoParaBatalha)
-{
-  int dado = RolarDado();
-  printf("Esse foi o seu resultado: %d\n", dado);
-  personagem->vida = personagem->vida - inimigoParaBatalha->matk;
-  inimigoParaBatalha->mana -= inimigoParaBatalha->matk;
-  if (personagem->vida <= 0)
-  {
-    batalha_fsair(personagem, inimigoParaBatalha);
-    cringe();
-    return 0;
-  }
-  batalha_menu(personagem, inimigoParaBatalha);
-}
+//   switch (dado)
+//   {
+//   case 0:
+//     printf("O %s se esquivou.\n", inimigoParaBatalha->nome);
+//     break;
 
+//   case 1:
+//     inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->armaSelecionada.dano;
+//     printf("%s ataca o %s\n", personagem->nome, inimigoParaBatalha->nome);
+//     if (inimigoParaBatalha->vida <= 0)
+//     {
+//       batalha_fsair(personagem, inimigoParaBatalha);
+//       return 0;
+//     }
+//     break;
+
+//   case 2:
+//     inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->armaSelecionada.dano;
+//     printf("%s ataca o %s\n", personagem->nome, inimigoParaBatalha->nome);
+//     if (inimigoParaBatalha->vida <= 0)
+//     {
+//       batalha_fsair(personagem, inimigoParaBatalha);
+//       return 0;
+//     }
+//     break;
+
+//   case 3:
+//     inimigoParaBatalha->vida = inimigoParaBatalha->vida - (personagem->armaSelecionada.dano * 1.5);
+//     printf("%s ataca o %s com um critico\n", personagem->nome, inimigoParaBatalha->nome);
+//     if (inimigoParaBatalha->vida <= 0)
+//     {
+//       batalha_fsair(personagem, inimigoParaBatalha);
+//       return 0;
+//     }
+//     break;
+
+//   default:
+//     return 1;
+//     break;
+//   }
+
+//   inimigoParaBatalha->vida = inimigoParaBatalha->vida - personagem->matk;
+//   personagem->vida -= personagem->mana;
+//   if (inimigoParaBatalha->vida <= 0)
+//   {
+//     batalha_fsair(personagem, inimigoParaBatalha);
+//     cringe();
+//     return 0;
+//   }
+//   batalha_menu(personagem, inimigoParaBatalha);
+// }
+
+// int batalha_inimigoAtaca_Magia(personagem_principal *personagem, inimigo *inimigoParaBatalha)
+// {
+//   int dado = RolarDado();
+//   printf("Esse foi o seu resultado: %d\n", dado);
+//   personagem->vida = personagem->vida - inimigoParaBatalha->matk;
+//   inimigoParaBatalha->mana -= inimigoParaBatalha->matk;
+//   if (personagem->vida <= 0)
+//   {
+//     batalha_fsair(personagem, inimigoParaBatalha);
+//     cringe();
+//     return 0;
+//   }
+//   batalha_menu(personagem, inimigoParaBatalha);
+// }
 
 int batalha_inventario(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 {
@@ -302,7 +344,7 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
 
       if (inimigoParaBatalha->vida <= 0)
         break;
-      
+
       batalha_menu(personagem, inimigoParaBatalha);
 
       break;

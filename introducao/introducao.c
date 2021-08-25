@@ -30,7 +30,6 @@ void Introducao(personagem_principal *personagem)
 
         scanf("%s", personagem->nome);
         system(CLEAR);
-        ;
     }
     SLEEP;
     puts(" - Certo, vamos, o rei precisa de voce. ");

@@ -6,10 +6,14 @@
 #define MAX_STRING_NAME 10
 #define MAX_INVENTARIO_SIZE 50
 
+#define CLASSE_GUERREIRO "Guerreiro"
+#define CLASSE_CACADOR "Cacador"
+#define CLASSE_MAGO "Mago"
+
 typedef struct arma
 {
     char nomeArma[40];
-    int dano;
+    float dano;
     int code;
 } arma;
 
