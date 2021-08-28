@@ -14,6 +14,7 @@
  */
 void escolherClasse(personagem_principal *personagem)//Aqui escolheremos a classe do nosso personagem
 {
+
     printf("Escolha sua classe:\n[1] - Guerreiro\n[2] - Cacador\n[3] - Mago\n");//nossas opções
     printf("Escolha: ");
     scanf("%d", &personagem->classe);

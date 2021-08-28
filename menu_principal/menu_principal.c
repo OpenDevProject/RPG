@@ -19,11 +19,13 @@
  */
 void IniciandoHistoria(personagem_principal *personagem)//função que inicia a história
 {
+
   CriandoPersonagem(personagem);//função que cria nosso personagem
   Introducao(personagem);//introdução da história
   SLEEP;// pausa dramática       >>>>   :O   <<<<
   //Fim de introdução, inicia a fase1
   Fase1(personagem);// Fase1
+
 }
 
 /**
