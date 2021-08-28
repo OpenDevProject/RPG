@@ -15,7 +15,7 @@ int item_encontrarVazioNoInventario(item inventario[])
         if (inventario[i].quant == -1 && (strcmp(inventario[i].nome, "VAZIO") == 0))
             return i;
     }
-
+    
     return -1;
 }
 
@@ -42,15 +42,23 @@ int item_encontrarItemNoInventario(item inventario[], item itemAProcurar)
  */
 void item_UsarItemDoInventario(item itemParaUsar, personagem_principal *personagem, item inventario[])
 {
-    for(int i = 0; i < MAX_INVENTARIO_SIZE; i++)
+    for (int i = 0; i < MAX_INVENTARIO_SIZE; i++)
     {
-        if(strcmp(inventario[i].nome, itemParaUsar.nome) == 0 && strcmp(itemParaUsar.nome, "Pocao de vida") == 0)
-        {   
+        if (strcmp(inventario[i].nome, itemParaUsar.nome) == 0 && strcmp(itemParaUsar.nome, "Pocao de vida") == 0)
+        {
             inventario[i].quant--;
-            personagem_recuperarVida(2, personagem);
-            if(inventario[i].quant <= 0)
+            personagem_recuperarVida(20, personagem);
+            if (inventario[i].quant <= 0)
                 item_RemoverItemDoInventario(itemParaUsar, inventario);
-            
+
+            break;
+        }
+        if (strcmp(inventario[i].nome, itemParaUsar.nome) == 0 && strcmp(itemParaUsar.nome, "Kit de Armadura") == 0)
+        {
+            inventario[i].quant--;
+            personagem_recuperarDef(personagem, 20);
+            if (inventario[i].quant <= 0)
+                item_RemoverItemDoInventario(itemParaUsar, inventario);
             break;
         }
     }
@@ -77,14 +85,15 @@ void item_AdicionarItemAoInventario(item itemParaAdicionar, item inventario[])
 void item_RemoverItemDoInventario(item itemParaRemover, item inventario[])
 {
     // Percorre todo o inventario
-    for (int i = 0; i < MAX_INVENTARIO_SIZE; i++){
+    for (int i = 0; i < MAX_INVENTARIO_SIZE; i++)
+    {
         // Se o item para remover tiver o mesmo nome retira ele do inventario
         if (strcmp(inventario[i].nome, itemParaRemover.nome) == 0)
         {
             // Insere o item vazio no lugar do item atual
             item itemVazio = ITEM_VAZIO;
             inventario[i] = itemVazio;
-            
+
             break;
         }
     }

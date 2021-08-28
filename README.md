@@ -5,6 +5,7 @@
     <a href="https://discord.gg/TyVAXNk93A" target="_blank"><img alt="Discord" src="https://img.shields.io/discord/872987245152460820"></a>
     <a href="#"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/OpenDevProject/RPG"></a>
     <a href="#"><img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/OpenDevProject/RPG"></a>
+    <a href="#"><img alt="Version Number" src="https://img.shields.io/badge/Version-0.0.1-blue"></a>
 </p>
 
 ## Index and Languages / Índice e Línguas
@@ -23,6 +24,8 @@
 
 RPG created in order to practice and improve the knowledge in the C language and have better teamwork. It is in a very early development stage and the team is always working to make the project better.
 
+[![DEMO](https://raw.githubusercontent.com/OpenDevProject/RPG/main/DEMO/DEMO.PNG)](#)
+
 ## Synopsis
 
 The main character finds himself in a realm that is threatened by the existence of the three great Wyverns and the ancient dragon and he, as a mercenary skill, has been hired by the king to save this realm.
@@ -37,13 +40,13 @@ to compile the program and ```.\RPG``` to execute.
 
 ### Windows EN
 
-Make sure Mingw-w64 is installed is installed correctly and run the command
-```mingw32-make```  
-After that the ```RPG.exe``` file will be created, you can run this file using the ```.\RPG.exe``` command.
+For Windows there is an executable binary in the project's bin folder, just double click it to start the game.
 
 ## Introdução
 
 RPG criado com o intuito de praticar a linguagem C e melhorar a habilidade de trabalhar em equipe. Atualmente se encontra em pré alfa com um continuo trabalho da equipe de tentar sempre melhora-lo.
+
+[![DEMO](https://raw.githubusercontent.com/OpenDevProject/RPG/main/DEMO/DEMO.PNG)](#)
 
 ## Sinopse
 
@@ -59,9 +62,7 @@ para compilar o programa e ```.\RPG``` para executar.
 
 ### Windows
 
-Certifique-se que o Mingw-w64 esteja instalado está instalado corretamente e execute o comando  
-```mingw32-make```  
-Após isso será criado o arquivo ```RPG.exe```, você pode executar esse arquivo utilizando o comando ```.\RPG.exe```.
+Para o Windows existe um binário executável na pasta bin do projeto, apenas use o duplo clique para iniciar o jogo.
 
 ## Cooperadores / Cooperators
 

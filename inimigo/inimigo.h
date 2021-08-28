@@ -4,11 +4,13 @@
 typedef struct inimigo {
     char nome[10];
     int atk;
-    int vida;
-    int vidaMax;
+    int matk;
+    float vida;
+    float vidaMax;
     int def;
     int mana;
     int velocidade;
+    float quantidadeExp;
 } inimigo;
 
 void inimigo_criarGlobin(inimigo *goblin);

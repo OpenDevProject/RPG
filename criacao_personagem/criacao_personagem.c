@@ -1,20 +1,23 @@
+//incluindo biblitecas e outros arquivos dentro do código, contidos em pastas .c e .h
 #include "criacao_personagem.h"
 #include "../utils/utils.h"
 
 #include <string.h>
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * @brief Pede para o usuário escolher uma classe
  * 
  * @param personagem O endereço do personagem a ser alterado a classe
  */
-void escolherClasse(personagem_principal *personagem)
+void escolherClasse(personagem_principal *personagem)//Aqui escolheremos a classe do nosso personagem
 {
-    printf("Escolha sua classe:\n[1] - Guerreiro\n[2] - Cacador\n[3] - Mago\n");
-
+    printf("Escolha sua classe:\n[1] - Guerreiro\n[2] - Cacador\n[3] - Mago\n");//nossas opções
+    printf("Escolha: ");
     scanf("%d", &personagem->classe);
+    system(CLEAR);
     clearBuffer();
 }
 
@@ -26,23 +29,11 @@ void escolherClasse(personagem_principal *personagem)
 void CriandoPersonagem(personagem_principal *personagem)
 {
     int arma;
-    printf("Digite o nome do seu personagem: ");
-
-    scanf("%s", personagem->nome);
-    //RemoverNovaLinhaDaString(temps);
-    while (strlen(personagem->nome) > 10)
-    {
-        printf("\nO nome do personagem so pode ter ate 10 caracteres.\n");
-        printf("Digite o nome do seu personagem: ");
-
-        scanf("%s", personagem->nome);
-    }
-
-    printf("%d\n", personagem->classe);
     escolherClasse(personagem);
 
     while (personagem->classe != 1 && personagem->classe != 2 && personagem->classe != 3)
     {
+        printf("Digite uma opcao valida!!");
         escolherClasse(personagem);
     }
     /*
@@ -60,21 +51,22 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Escolha sua arma:\n[1] - Espada\n[2] - Machado\n");
         puts("Opcao: ");
         scanf("%d", &arma);
+        system(CLEAR);
         clearBuffer();
 
         switch (arma)
         {
         case 1:
-            printf("Parabens, voce escolheu a espada\n");
-            personagem->arma = 1;
+            printf("Parabens, voce escolheu a espada\n\n");
+            arma_criarEspada(personagem);
             break;
 
         case 2:
-            printf("Parabens, voce escolheu o machado\n");
-            personagem->arma = 2;
+            printf("Parabens, voce escolheu o machado\n\n");
+            arma_criarMachado(personagem);
             break;
-
         default:
+            TratamentoDeErro();
             break;
         }
         break;
@@ -84,21 +76,25 @@ void CriandoPersonagem(personagem_principal *personagem)
         printf("Parabens, voce escolheu Cacador\n");
 
         printf("Escolha sua arma:\n[1] - Punhal\n[2] - Arco\n");
+        printf("escolha: ");
         scanf("%d", &arma);
-        puts("Opcao: ");
+        system(CLEAR);
         clearBuffer();
 
         switch (arma)
         {
         case 1:
-            printf("Parabens, voce escolheu o punhal\n");
+            printf("Parabens, voce escolheu o punhal\n\n");
+            arma_criarPunhal(personagem);
             break;
 
         case 2:
-            printf("Parabens, voce escolheu o arco\n");
+            printf("Parabens, voce escolheu o arco\n\n");
+            arma_criarArco(personagem);
             break;
 
         default:
+            TratamentoDeErro();
             break;
         }
 
@@ -106,13 +102,33 @@ void CriandoPersonagem(personagem_principal *personagem)
     case 3:
         personagem_principal_criarMago(personagem);
 
-        printf("Parabéns, voce escolheu Mago\n");
+        printf("Parabens, voce escolheu Mago\n");
 
         printf("Escolha sua arma:\n[1] - Fogo\n[2] - Gelo\n");
+        printf("escolha: ");
         scanf("%d", &arma);
-        puts("Opcao: ");
+        system(CLEAR);
         clearBuffer();
+
+        switch (arma)
+        {
+        case 1:
+            printf("Parabens, voce escolheu o fogo\n\n");
+            arma_criarFogo(personagem);
+            break;
+
+        case 2:
+            printf("Parabens, voce escolheu o gelo\n\n");
+            arma_criarGelo(personagem);
+            break;
+
+        default:
+            TratamentoDeErro();
+            break;
+        }
 
         break;
     }
+
+    item_CriarArrayItem(personagem->inventario);
 }
