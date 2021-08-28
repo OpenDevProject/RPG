@@ -1,3 +1,4 @@
+//incluindo biblitecas e outros arquivos dentro do código, contidos em pastas .c e .h
 #include "criacao_personagem.h"
 #include "../utils/utils.h"
 
@@ -11,9 +12,10 @@
  * 
  * @param personagem O endereço do personagem a ser alterado a classe
  */
-void escolherClasse(personagem_principal *personagem)
+void escolherClasse(personagem_principal *personagem)//Aqui escolheremos a classe do nosso personagem
 {
-    printf("Escolha sua classe:\n[1] - Guerreiro\n[2] - Cacador\n[3] - Mago\n");
+
+    printf("Escolha sua classe:\n[1] - Guerreiro\n[2] - Cacador\n[3] - Mago\n");//nossas opções
     printf("Escolha: ");
     scanf("%d", &personagem->classe);
     system(CLEAR);
