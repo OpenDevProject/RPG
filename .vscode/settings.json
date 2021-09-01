@@ -17,6 +17,8 @@
         "tuple": "c",
         "type_traits": "c",
         "utility": "c",
-        "system_error": "c"
+        "system_error": "c",
+        "introducao.h": "c",
+        "stdio.h": "c"
     }
 }

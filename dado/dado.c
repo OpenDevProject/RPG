@@ -6,39 +6,36 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define RANDOM_MAX 21 //definindo o valor máximo para o dado, 21 para cehgar em 20 e deixar um sobrando
+#define RANDOM_MAX 21
 
-/**
- * @brief Rola um dado com um valor de até 20
- * 
- * @return int Retorna o valor do dado rolado
- */
+#define RESULTADO_MINIMO 0
+#define RESULTADO_NORMAL 1
+#define RESULTADO_BOM 2
+#define RESULTADO_CRITICO 3
+
+static int gerarResultadoComValorDado(int valorDado)
+{
+    if (valorDado >= 0 && valorDado <= 3)
+        return RESULTADO_MINIMO;
+    else if (valorDado >= 4 && valorDado <= 11)
+        return RESULTADO_NORMAL;
+    else if (valorDado >= 12 && valorDado <= 17)
+        return RESULTADO_BOM;
+    else if (valorDado >= 18 && valorDado <= 20)
+        return RESULTADO_CRITICO;
+}
+
+static int girarDado(int seed)
+{
+    srand(seed);
+    return rand() % RANDOM_MAX;
+}
+
 int RolarDado(int seed)
 {
-    int dado;
-    srand(seed); //muda o numero gerado sempre que o codigo roda
-    dado = rand() % RANDOM_MAX;
+    int dado = girarDado(seed);
+
     printf("\nO resultado foi: %d\n", dado);
-    if (dado >= 0 && dado <= 3)
-    {
-        printf("Resultado minimo!\n\n");
-        cringe();
-        dado = 0;
-    }
-    else if (dado >= 4 && dado <= 11)
-    {
-        printf("Resultado normal!\n\n");
-        dado = 1;
-    }
-    else if (dado >= 12 && dado <= 17)
-    {
-        printf("Resultado bom!\n\n");
-        dado = 2;
-    }
-    else if (dado >= 18 && dado <= 20)
-    {
-        printf("Resultado critico!\n\n");
-        dado = 3;
-    }
-    return dado;
+
+    return gerarResultadoComValorDado(dado);
 }

@@ -84,60 +84,15 @@ void Fase1(personagem_principal *personagem)
        SLEEP;
        printf("[rei] Nao enviaremos jovens inexperientes para sua morte!\n\n");
        SLEEP;
-              if(personagem->classe == 3)
-              { 
+       if (personagem->classe == 3)
+       {
               printf("[rei] Leve algumas pocoes para sua aventura na Floresta Mydra\n");
-              }
-              else
-              { 
-              printf("Leve essa esta(e) %s e algumas pocoes para sua aventura na Floresta Mydra", personagem->armaSelecionada.nomeArma);
-              }
+       }
+       else
+       {
+              printf("Leve essa esta(e) %s e algumas pocoes para sua aventura na Floresta Mydra\n", personagem->armaSelecionada.nomeArma);
+       }
        printf("na qual voce executara o primeiro Wyvern, Radamanthys.\n\n");
-       if (personagem->armaSelecionada.code == 1)
-       {
-              item espada = ITEM_ESPADA;
-              espada.quant = 1;
-              item_AdicionarItemAoInventario(espada, personagem->inventario);
-       }
-       else if (personagem->armaSelecionada.code == 2)
-       {
-              item machado = ITEM_MACHADO;
-              machado.quant = 1;
-              item_AdicionarItemAoInventario(machado, personagem->inventario);
-       }
-       else if (personagem->armaSelecionada.code == 3)
-       {
-              item punhal = ITEM_PUNHAL;
-              punhal.quant = 1;
-              item_AdicionarItemAoInventario(punhal, personagem->inventario);
-       }
-       else if (personagem->armaSelecionada.code == 4)
-       {
-              item arco = ITEM_ARCO;
-              arco.quant = 1;
-              item_AdicionarItemAoInventario(arco, personagem->inventario);
-       }
-       else if (personagem->armaSelecionada.code == 5)
-       {
-              item fogo = ITEM_FOGO;
-              fogo.quant = 1;
-              item_AdicionarItemAoInventario(fogo, personagem->inventario);
-       }
-       else if (personagem->armaSelecionada.code == 6)
-       {
-              item gelo = ITEM_GELO;
-              gelo.quant = 1;
-              item_AdicionarItemAoInventario(gelo, personagem->inventario);
-       }
-
-       item pocao = ITEM_POCAO;
-       pocao.quant = 10;
-       item recuperarArmadura = ITEM_KIT_DE_ARMADURA;
-       recuperarArmadura.quant = 5;
-
-       item_AdicionarItemAoInventario(pocao, personagem->inventario);
-       item_AdicionarItemAoInventario(recuperarArmadura, personagem->inventario);
-       
        SLEEP;
        printf("(Apos receber a(o) %s e as pocoes voce parte \n"
               "para a Floresta Mydra para enfrentar Radamanthys.)\n\n",
@@ -168,7 +123,8 @@ void Fase1(personagem_principal *personagem)
        SLEEP;
        printf("(Voce se levanta, limpa o braco esquerdo que ficou coberto de lama e\n");
        printf("pega sua arma e percebe que mais ao fundo no meio das arvores surgem mais slimes,\n");
-       printf("voce conta por cima e sao no minimo 5. Os dois Slimes da frente Lancaram acidos na sua direcao)\n\n");
+       printf("voce conta por cima e sao no minimo 5. Os dois Slimes da frente \n"
+       "lancaram acidos na sua direcao)\n\n");
        SLEEP;
 
        inimigo_criarSlime(&inimigoPrincipal);
@@ -264,7 +220,8 @@ void Fase1(personagem_principal *personagem)
        SLEEP;
        printf("(Apos a conversa voces se despedem e seguem seus caminhos)\n\n");
        SLEEP;
-       printf("(Voce tem duas opcoes, quer continuar sua jornada e adentrar a parte media ou praticar mais na parte externa?)\n");
+       printf("(Voce tem duas opcoes, quer continuar sua jornada e adentrar\n"
+              "a parte media ou praticar mais na parte externa?)\n");
        printf("[1] - Continuar para a parte media\n[2] - Treinar mais na parte externa\n\n");
        scanf("%d", &escolha);
        seguirEmFrenteOuPraticar(escolha, &inimigoPrincipal, personagem);

@@ -5,7 +5,7 @@ personagem_principal personagem;
 
 int main(void)
 {
-  MenuPrincipal(&personagem);//Aqui se inicia o jogo
+  MenuPrincipal(&personagem);
 
   return 0;
 }

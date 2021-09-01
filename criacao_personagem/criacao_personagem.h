@@ -3,6 +3,6 @@
 
 #include "../personagem_principal/personagem_principal.h"
 
-void CriandoPersonagem(personagem_principal *personagem);
+void criarPersonagem(personagem_principal *personagem);
 
 #endif

@@ -5,19 +5,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/**
- * @brief Sai do programa
- * 
- * @return int Retorna o valor 0 de sucesso
- */
+static void imprimirMensagemDeSaida(int valorTimer)
+{
+    system(CLEAR);
+    printf("Saindo...\n");
+    printf("TIMER: %d\n", valorTimer);
+    sleep(1);
+}
+
 int Exit()
 {
     for (int i = 3; i >= 0; i--)
-    {
-        system(CLEAR);
-        printf("Saindo...\n");
-        printf("TIMER: %d\n", i);
-        sleep(1);
-    }
+        imprimirMensagemDeSaida(i);
+    
     return 0;
 }
