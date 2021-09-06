@@ -5,11 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**
- * @brief Cria um novo guerreiro e guarda eles no personagem
- * 
- * @param personagem O endereço do personagem a ser usado
- */
 void personagem_principal_criarGuerreiro(personagem_principal *personagem)
 {
     personagem->atk = 108;
@@ -26,11 +21,6 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem)
     personagem->armaSelecionada.code = 1;
 }
 
-/**
- * @brief Cria um novo caçador e guarda eles no personagem
- * 
- * @param personagem O endereço do personagem a ser usado
- */
 void personagem_principal_criarCacador(personagem_principal *personagem)
 {
     personagem->atk = 178;
@@ -47,11 +37,6 @@ void personagem_principal_criarCacador(personagem_principal *personagem)
     personagem->armaSelecionada.code = 3;
 }
 
-/**
- * @brief Cria um novo mago e guarda eles no personagem
- * 
- * @param personagem O endereço do personagem a ser usado
- */
 void personagem_principal_criarMago(personagem_principal *personagem)
 {
     personagem->atk = 24;
@@ -68,16 +53,15 @@ void personagem_principal_criarMago(personagem_principal *personagem)
     personagem->armaSelecionada.code = 5;
 }
 
-/**
- * @brief Recupera uma certa quantidade de vida do personagem
- * 
- * @param vidaParaRecuperar Quantidade de vida para recuperar
- * @param personagem O endereco do personagem
- */
+static int vidaUltrapassaVidaMaxima(int vidaAtual, int vidaMaxima)
+{
+    return vidaAtual > vidaMaxima;
+}
+
 void personagem_recuperarVida(int vidaParaRecuperar, personagem_principal *personagem)
 {
     personagem->vida = personagem->vida + vidaParaRecuperar;
-    if (personagem->vida > personagem->vidaMax)
+    if (vidaUltrapassaVidaMaxima(personagem->vida, personagem->vidaMax))
         personagem->vida = personagem->vidaMax;
 }
 
@@ -153,9 +137,7 @@ void personagem_recuperarDef(personagem_principal *personagem, int quantidadePar
 {
     personagem->def = personagem->def + quantidadeParaRecuperar;
     if (personagem->def > personagem->defMax)
-    {
         personagem->def = personagem->defMax;
-    }
 }
 
 void personagem_diminuirDef(personagem_principal *personagem, int quantidadeDeDano)

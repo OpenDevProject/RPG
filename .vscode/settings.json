@@ -19,6 +19,7 @@
         "utility": "c",
         "system_error": "c",
         "introducao.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "string.h": "c"
     }
 }

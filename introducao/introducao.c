@@ -1,7 +1,10 @@
 #include "introducao.h"
 #include "../utils/utils.h"
 #include "../personagem_principal/personagem_principal.h"
+
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
 static void requisitarNomeNovamente(personagem_principal *personagem)

@@ -8,52 +8,68 @@
 #include "../fase1/fase1.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
-void IniciandoHistoria(personagem_principal *personagem)
-{
+#define INICIAR_HISTORIA 1
+#define CREDITOS 2
+#define SAIR 3
 
+int creditos()
+{
+  puts("Creditos: Tiringa");
+  return CREDITOS;
+}
+
+int IniciandoHistoria(personagem_principal *personagem)
+{
   criarPersonagem(personagem);
   Introducao(personagem);
   SLEEP;
   Fase1(personagem);
+  
+  return INICIAR_HISTORIA;
+}
+
+int escolherOpcao()
+{
+  int valorDigitado;
+  scanf("%d", &valorDigitado);
+
+  system(CLEAR);
+  clearBuffer();
+
+  return valorDigitado;
+}
+
+void imprimirMenu()
+{
+  puts("MENU PRINCIPAL");
+  puts("[1] - Iniciar Jogo");
+  puts("[2] - Creditos");
+  puts("[3] - Sair");
+  printf("Escolha: ");
+}
+
+int executarMenuPrincipal(personagem_principal *personagem)
+{
+  int opcaoEscolhida;
+
+  imprimirMenu();
+
+  opcaoEscolhida = escolherOpcao();
+
+  if (opcaoEscolhida == INICIAR_HISTORIA)
+    return IniciandoHistoria(personagem);
+  else if (opcaoEscolhida == CREDITOS)
+    return creditos();
+  else if (opcaoEscolhida == SAIR)
+    return SAIR;
 }
 
 void MenuPrincipal(personagem_principal *personagem)
 {
-  int opcaoMenuPrincipal;
+  while (executarMenuPrincipal(personagem) != SAIR);
 
-  do
-  {
-
-    puts("MENU PRINCIPAL");
-    puts("[1] - Iniciar Jogo");
-    puts("[2] - Creditos");
-    puts("[3] - Sair");
-    printf("Escolha: ");
-
-    scanf("%d", &opcaoMenuPrincipal);
-    system(CLEAR);
-    clearBuffer();
-
-    switch (opcaoMenuPrincipal)
-    {
-
-    case 1:
-      IniciandoHistoria(personagem);
-      break;
-
-    case 2:
-      puts("Creditos: Tiringa");
-      break;
-
-    case 3:
-      Exit();
-      return;
-      break;
-
-    default:
-      TratamentoDeErro();
-    }
-  } while (opcaoMenuPrincipal);
+  Exit();
 }
