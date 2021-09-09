@@ -1,4 +1,5 @@
 #include "inimigo.h"
+
 #include <string.h>
 
 void inimigo_criarGlobin(inimigo *goblin)
@@ -12,6 +13,7 @@ void inimigo_criarGlobin(inimigo *goblin)
     goblin->vida = 80;
     goblin->vidaMax = 68;
     goblin->quantidadeExp = 2;
+    estado_criarNormal(&goblin->estadoAtual);
 }
 
 void inimigo_criarSlime(inimigo *slime)
@@ -25,6 +27,7 @@ void inimigo_criarSlime(inimigo *slime)
     slime->vida = 80;
     slime->vidaMax = 80;
     slime->quantidadeExp = 1;
+    estado_criarNormal(&slime->estadoAtual);
 }
 
 void inimigo_criarOrc(inimigo *orc)
@@ -38,6 +41,7 @@ void inimigo_criarOrc(inimigo *orc)
     orc->vida = 160;
     orc->vidaMax = 160;
     orc->quantidadeExp = 10;
+    estado_criarNormal(&orc->estadoAtual);
 }
 
 void inimigo_criarBruxa(inimigo *bruxa)
@@ -51,6 +55,7 @@ void inimigo_criarBruxa(inimigo *bruxa)
     bruxa->vida = 120;
     bruxa->vidaMax = 120;
     bruxa->quantidadeExp = 20;
+    estado_criarNormal(&bruxa->estadoAtual);
 }
 
 void inimigo_criarElfo(inimigo *elfo)
@@ -64,6 +69,7 @@ void inimigo_criarElfo(inimigo *elfo)
     elfo->vida = 110;
     elfo->vidaMax = 110;
     elfo->quantidadeExp = 15;
+    estado_criarNormal(&elfo->estadoAtual);
 }
 
 void inimigo_criarGrifo(inimigo *grifo)
@@ -77,6 +83,7 @@ void inimigo_criarGrifo(inimigo *grifo)
     grifo->vida = 240;
     grifo->vidaMax = 14;
     grifo->quantidadeExp = 30;
+    estado_criarNormal(&grifo->estadoAtual);
 }
 
 void inimigo_criarRadamanthys(inimigo *radamanthys)
@@ -90,4 +97,5 @@ void inimigo_criarRadamanthys(inimigo *radamanthys)
     radamanthys->vida = 300;
     radamanthys->vidaMax = 15;
     radamanthys->quantidadeExp = 50;
+    estado_criarNormal(&radamanthys->estadoAtual);
 }

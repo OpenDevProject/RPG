@@ -1,6 +1,10 @@
 #ifndef INIMIGOS_H
 #define INIMIGOS_H
 
+typedef struct estado estado;
+
+#include "../estado/estado.h"
+
 typedef struct inimigo {
     char nome[10];
     int atk;
@@ -11,6 +15,7 @@ typedef struct inimigo {
     int mana;
     int velocidade;
     float quantidadeExp;
+    estado estadoAtual;
 } inimigo;
 
 void inimigo_criarGlobin(inimigo *goblin);

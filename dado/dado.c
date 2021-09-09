@@ -16,7 +16,10 @@
 static int gerarResultadoComValorDado(int valorDado)
 {
     if (valorDado >= 0 && valorDado <= 3)
+    {
+        cringe();
         return RESULTADO_MINIMO;
+    }
     else if (valorDado >= 4 && valorDado <= 11)
         return RESULTADO_NORMAL;
     else if (valorDado >= 12 && valorDado <= 17)

@@ -32,6 +32,8 @@ The main character finds himself in a realm that is threatened by the existence 
 
 ## Instalation
 
+Create a build folder inside this one and use cmake to create a Makefile before everything else, after that follow what's written below.
+
 ### Linux EN
 
 Make sure that GCC (or your preferred compiler) is installed correctly and use the command  
@@ -53,6 +55,8 @@ RPG criado com o intuito de praticar a linguagem C e melhorar a habilidade de tr
 O personagem principal se encontra em um reino que está ameaçado pela existencia dos três grandes Wyverns e pelo dragão ancião e ele, como um hábio mercenário, foi contratado pelo rei para salvar este reino.
 
 ## Instalação
+
+Crie uma pasta build dentro desta e use o cmake para gerar um Makefile antes de qualquer coisa, após isso siga ao que está escrito abaixo.
 
 ### Linux
 

@@ -290,6 +290,7 @@ void batalha_menu(personagem_principal *personagem, inimigo *inimigoParaBatalha)
   puts("================");
   printf("VIDA DO %s: %.1f\n", personagem->nome, personagem->vida);
   printf("VIDA DO %s: %.1f\n", inimigoParaBatalha->nome, inimigoParaBatalha->vida);
+  printf("ESTADO ATUAL DO %s: %s\n", inimigoParaBatalha->nome, inimigoParaBatalha->estadoAtual.nome);
   puts("================");
   printf("\n");
   printf("XP atual: %.1f pontos\n", personagem->exp);

@@ -20,6 +20,7 @@
         "system_error": "c",
         "introducao.h": "c",
         "stdio.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "estado.h": "c"
     }
 }

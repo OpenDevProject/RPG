@@ -193,17 +193,32 @@ void Fase1(personagem_principal *personagem)
        SLEEP;
        printf("(Ao adentrar a floresta voce percebe um aumento na densidade de arvores, suas copas sao mais cheias e\n"
               "seus troncos mais grossos fazendo com que apenas finos raios de luz atravessem. Os ventos correm\n"
-              "pelo seu cabelo junto com o balancar das incontaveis folhas)\n\n");
+              "a sua volta, trazendo odores desagrdáveis de carne podre e animais mortos)\n\n");
        SLEEP;
        printf("(Voce continua sua caminhada cautelosamente quando escuta passos.)\n\n");
        SLEEP;
-       printf("(Apos se esconder atras de um arbusto voce avista um grupo de goblins caminhando e logo atras um enorme ser.)\n\n");
+       printf("(Apos evitar contato, indo atras de um arbusto voce avista um grupo de goblins caminhando e logo atras um enorme ser.)\n\n");
        SLEEP;
        printf("(Sua pele eh verde escura e seus olhos sao alaranjados,\n"
               "seus musculos, repletos de veias, exalam vigor e seus passos sao estrondosos)\n\n");
        SLEEP;
-       printf("(De acordo com os livros que voce leu em sua infancia, voce chega a conclusao que esta de frente para um Orc.)\n\n");
+       printf("(De acordo com suas experiencias passadas, voce chega a conclusao que esta de frente para um Orc.)\n\n");
        SLEEP;
+       printf("(Evitar combate eh o ideal, entao voce decide deixa-lo passar, e fica junto com olivia escondidos em silencio)\n");
+       SLEEP;
+       printf("(Olivia perde o equilibrio, cai sobre algumas folahs fazendo um baixo barulho\n");
+       SLEEP;
+       printf("[%s] CUIDADO! quase que eles nos escuta, devemos evitar combate desnescesssarios\n");
+       SLEEP;
+       printf("(Cheiro de carne podre muito forte eh sentdio, um calor horrivel corre em suas veias, sentindo uma mudanca a sa volta)\n");
+       SLEEP;
+       printf("[Olivia] SE ABAIXE!\n");
+       SLEEP;
+       printf("(Com um rapido reflexo, voce se abaixa jogando seu torso no chao, e uma grande clava passa por cima de voce, por pouco nao te acerta)\n");
+       SLEEP; 
+       printf("[%s] Nao queria ter que fazer isso, mas que inferno, bem, vamos la seu orc de merda", personagem->nome);
+       inimigo_criarOrc(&inimigoPrincipal);
+       batalha_menu(personagem, &inimigoPrincipal);
 
        printf("ESSE JOGO AINDA ESTA EM DESENVOLVIMENTO!\n");
        printf("CASO QUEIRA ACOMPANHAR O DESENVOLVIMENTO ACESSE: https://github.com/OpenDevProject/RPG\n");
