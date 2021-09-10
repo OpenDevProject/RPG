@@ -7,6 +7,7 @@
 
 void personagem_principal_criarGuerreiro(personagem_principal *personagem)
 {
+    personagem->classe = 0;
     personagem->atk = 108;
     personagem->matk = 45;
     personagem->level = 1;
@@ -23,6 +24,7 @@ void personagem_principal_criarGuerreiro(personagem_principal *personagem)
 
 void personagem_principal_criarCacador(personagem_principal *personagem)
 {
+    personagem->classe = 1;
     personagem->atk = 178;
     personagem->matk = 46;
     personagem->level = 1;
@@ -39,6 +41,7 @@ void personagem_principal_criarCacador(personagem_principal *personagem)
 
 void personagem_principal_criarMago(personagem_principal *personagem)
 {
+    personagem->classe = 2;
     personagem->atk = 24;
     personagem->matk = 151;
     personagem->vida = 89;

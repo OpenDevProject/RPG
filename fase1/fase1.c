@@ -195,6 +195,7 @@ void Fase1(personagem_principal *personagem)
               "seus troncos mais grossos fazendo com que apenas finos raios de luz atravessem. Os ventos correm\n"
               "a sua volta, trazendo odores desagrdáveis de carne podre e animais mortos)\n\n");
        SLEEP;
+       SLEEP;
        printf("(Voce continua sua caminhada cautelosamente quando escuta passos.)\n\n");
        SLEEP;
        printf("(Apos evitar contato, indo atras de um arbusto voce avista um grupo de goblins caminhando e logo atras um enorme ser.)\n\n");
@@ -206,15 +207,15 @@ void Fase1(personagem_principal *personagem)
        SLEEP;
        printf("(Evitar combate eh o ideal, entao voce decide deixa-lo passar, e fica junto com olivia escondidos em silencio)\n");
        SLEEP;
-       printf("(Olivia perde o equilibrio, cai sobre algumas folahs fazendo um baixo barulho\n");
+       printf("(Olivia perde o equilibrio, cai sobre algumas folahs fazendo um baixo barulho\n\n");
        SLEEP;
-       printf("[%s] CUIDADO! quase que eles nos escuta, devemos evitar combate desnescesssarios\n");
+       printf("[%s] CUIDADO! quase que eles nos escuta, devemos evitar combate desnescesssarios\n\n", personagem->nome);
        SLEEP;
-       printf("(Cheiro de carne podre muito forte eh sentdio, um calor horrivel corre em suas veias, sentindo uma mudanca a sa volta)\n");
+       printf("(Cheiro de carne podre muito forte eh sentdio, um calor horrivel corre em suas veias, sentindo uma mudanca a sa volta)\n\n");
        SLEEP;
-       printf("[Olivia] SE ABAIXE!\n");
+       printf("[Olivia] SE ABAIXE!\n\n");
        SLEEP;
-       printf("(Com um rapido reflexo, voce se abaixa jogando seu torso no chao, e uma grande clava passa por cima de voce, por pouco nao te acerta)\n");
+       printf("(Com um rapido reflexo, voce se abaixa jogando seu torso no chao, e uma grande clava passa por cima de voce, por pouco nao te acerta)\n\n");
        SLEEP; 
        printf("[%s] Nao queria ter que fazer isso, mas que inferno, bem, vamos la seu orc de merda", personagem->nome);
        inimigo_criarOrc(&inimigoPrincipal);
