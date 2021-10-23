@@ -220,6 +220,8 @@ void Fase1(personagem_principal *personagem)
        printf("[%s] Nao queria ter que fazer isso, mas que inferno, bem, vamos la seu orc de merda", personagem->nome);
        inimigo_criarOrc(&inimigoPrincipal);
        batalha_menu(personagem, &inimigoPrincipal);
+       printf("Eu nao sei mais o que fazer");
+       printf("socorro");
 
        printf("ESSE JOGO AINDA ESTA EM DESENVOLVIMENTO!\n");
        printf("CASO QUEIRA ACOMPANHAR O DESENVOLVIMENTO ACESSE: https://github.com/OpenDevProject/RPG\n");
