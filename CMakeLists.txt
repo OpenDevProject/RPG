@@ -1,20 +1,17 @@
-cmake_minimum_required(VERSION 3.21.2)
+cmake_minimum_required(VERSION 3.21)
+project(RPGGame)
 
-project(RPG)
+find_package(PkgConfig REQUIRED)
 
-set(SRCS criacao_personagem/criacao_personagem.c
-        dado/dado.c
-        exit/exit.c
-        estado/estado.c
-        inimigo/inimigo.c
-        fase1/fase1.c
-        sistema_batalha/batalha.c
-        introducao/introducao.c
-        menu_principal/menu_principal.c
-        personagem_principal/habilidade.c
-        personagem_principal/item.c
-        personagem_principal/personagem_principal.c
-        utils/utils.c
-        main.c)
+PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
+PKG_SEARCH_MODULE(SDL2_image REQUIRED SDL2_image)
+PKG_SEARCH_MODULE(SDL2_ttf REQUIRED SDL2_ttf)
 
-add_executable(${PROJECT_NAME} ${SRCS})
+include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_image_INCLUDE_DIRS} ${SDL2_ttf_INCLUDE_DIRS})
+
+add_executable(${PROJECT_NAME})
+
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_image_LIBRARIES} ${SDL2_ttf_LIBRARIES})
+add_subdirectory(src)
+
+file(COPY resources DESTINATION .)
